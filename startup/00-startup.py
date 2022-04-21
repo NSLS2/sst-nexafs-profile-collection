@@ -2,7 +2,7 @@ import nslsii
 import ucal_common as ucal
 from ucal_common.startup import *
 from bluesky.callbacks import LiveTable
-nslsii.configure_base(get_ipython().user_ns, "ucal")
+nslsii.configure_base(get_ipython().user_ns, "ucal", publish_documents_with_kafka=True)
 
 loadfile = beamline_config.get('loadfile', None)
 if loadfile is not None:
