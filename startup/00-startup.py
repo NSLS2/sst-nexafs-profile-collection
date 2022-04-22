@@ -9,7 +9,7 @@ paths = [
     if path.is_dir()
 ]
 for path in paths:
-    sys.path.append(path)
+    sys.path.append(str(path))
 
 import nslsii
 import ucal_common as ucal
