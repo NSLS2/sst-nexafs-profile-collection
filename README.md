@@ -3,13 +3,10 @@
 This profile depends on independent packages developed under the 
 NSLS-II-SST organization.
 
-To install a new custom package for development, first navigate to the 
-package, then:
+To install a new custom package for repid development, clone the package into:
+`/nsls2/data/sst/rsoxs/shared/config/bluesky/collection_packages`
 
-```bash
-source $BS_ENV
-pip install -e . --user --no-dependencies
-```
+This should be soft linked in the home directory. Directories will be automatically exposed to the bsui namespace.
 
 If your package has requirements that are not met by the base environment, it is recommended that they be 
 installed in a shared overlay. 
