@@ -12,8 +12,8 @@ for path in paths:
     sys.path.append(str(path))
 
 import nslsii
-import ucal_common as ucal
-from ucal_common.startup import *
+import ucal
+from ucal.startup import *
 from bluesky.callbacks import LiveTable
 
 nslsii.configure_base(get_ipython().user_ns, "ucal", publish_documents_with_kafka=True)
