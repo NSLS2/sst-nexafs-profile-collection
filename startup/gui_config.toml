@@ -1,0 +1,31 @@
+[gui.tabs]
+include = ["sst-gui-queue", "sst-gui-monitor", "sst-gui-motors", "sst-gui-plans", "sst-gui-samples", "sst-gui-console", "kafka-table-tab"]
+
+[models.beamline]
+primary_energy = "en"
+primary_manipulator = "manipulator"
+
+[devices.controllers]
+exclude = true
+
+[devices.mirrors]
+exclude = true
+
+[devices.dms]
+exclude = true
+
+[devices.detectors]
+i0mir = { exclude = true }
+tes = { exclude = true }
+
+[devices.shutters]
+psh8 = { visible = false }
+
+[loaders]
+"NewEnPos" = "ucal.qt.models.energy.energyFromOphyd"
+"EnPos" = "ucal.qt.models.energy.energyFromOphyd"
+"ManipulatorBuilderNEXAFS" = "sst_gui.loaders.manipulatorFromOphyd"
+
+[kafka]
+config_file = "/etc/bluesky/kafka.yml"
+bl_acronym = "ucal"

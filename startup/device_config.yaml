@@ -1,32 +1,30 @@
-cameras:
-  _default:
-    _target_: sst_base.cameras.StandardProsilicaV33
-  bpm8:
-    prefix: "XF:07ID-BI{BPM:8}"
-    name: "BPM8"
-  bpm14:
-    prefix: "XF:07ID-BI{BPM:14}"
-    name: "BPM14"
 controllers:
   adr:
-    _target_: sst_base.sim.DummyObject
+    _target_: sst_tes.adr.EPICS_ADR
     prefix: 'XF:07ID-ES{UCAL:ADR}'
     name: 'adr'
+    _baseline_: true
 detectors:
   _default:
     _target_: sst_base.detectors.scalar.ADCBuffer
   i0:
-    prefix: "XF:07ID-BI[ADC:2-Ch:0]"
-    name: "ucal_i0up"
+    prefix: "XF:07ID-BI[ADC:1-Ch:7]"
+    name: "nexafs_i0up"
     rescale: -1
     _extra_:
       sets:
         default: normalization
         transmission: normalization
       threshold: 0.1
+  i1:
+    prefix: "XF:07ID-BI[ADC:2-Ch:3]"
+    name: "nexafs_i1"
+    rescale: -1
+    _extra_:
+      threshold: 0.15
   ref:
     prefix: "XF:07ID-BI[ADC:1-Ch:5]"
-    name: "ucal_ref"
+    name: "nexafs_ref"
     rescale: -1
     _extra_:
       sets:
@@ -34,30 +32,29 @@ detectors:
         transmission: reference
       threshold: 0.1
   sc:
-    prefix: "XF:07ID-BI[ADC:2-Ch:1]"
-    name: "ucal_sc"
+    prefix: "XF:07ID-BI[ADC:1-Ch:4]"
+    name: "nexafs_sc"
     rescale: -1
     _extra_:
       sets:
         default: primary
       threshold: 0.1
-  i0mir:
-    _target_: sst_base.detectors.scalar.I400SingleCh
-    prefix: "XF:07ID-BI{DM7:I400-1}:IC3_MON"
-    name: "DM7_i400_i0mirror"
+  pey:
+    prefix: "XF:07ID-BI[ADC:1-Ch:6]"
+    name: "nexafs_pey"
   m4cd:
-    prefix: "XF:07ID-BI[ADC:2-Ch:2]"
+    prefix: "XF:07ID-BI[ADC:2-Ch:4]"
     name: "m4cd"
-  dm7diode:
-    prefix: "XF:07ID-BI[ADC:2-Ch:3]"
-    name: "dm7diode"
   tes:
-    _target_: sst_base.sim.DummyObject
-    prefix: "tes"
+    _target_: sst_tes.mca_tes.TESMCA
+    prefix: ""
     name: "tes"
     address: "10.66.48.41"
     path: "/nsls2/data/sst/legacy/ucal/raw/%Y/%m/%2d"
     port: 4000
+    _extra_:
+      sets:
+        default: primary
 dms:
   _default:
     _target_: sst_base.motors.PrettyMotor
@@ -100,13 +97,9 @@ diode:
   Light_control:
     prefix: "XF:07IDB-CT{DIODE-Local:1}OutPt05:Data-Sel"
     name: "RSoXS Light Toggle"
-  shutter_open_set:
-    _target_: sst_base.shutters.ShutterSet
-    prefix: 'XF:07IDB-CT{DIODE-MTO:1}Output:2'
-    name: "Shutter Open with Watcher"
 energy:
   en:
-    _target_: ucal.new_energy.NewEnPos
+    _target_: sst_hw.energy.EnPos
     prefix: ""
     name: "en"
 gatevalves:
@@ -156,13 +149,14 @@ gatevalves:
     name: "Turbo Gate Valve"
 manipulators:
   manipulator:
-    _target_: sst_funcs.manipulators.ManipulatorBuilder
-    prefix: "XF:07ID1-BI{UCAL-Ax:"
+    _target_: sst_funcs.manipulators.ManipulatorBuilderNEXAFS
+    prefix: "XF:07ID1-BI{NXFS-Ax:"
     name: "manip"
   multimesh:
     _target_: sst_funcs.manipulators.MultiMeshBuilder
     prefix: "XF:07ID1-BI{I0Up-Ax:"
     name: "i0upmultimesh"
+    _baseline_: true
 mirrors:
   _default:
     _target_: sst_base.mirrors.FMBHexapodMirror
@@ -174,12 +168,18 @@ mirrors:
   mir4:
     prefix: "XF:07ID2-OP{Mir:M4CD"
     name: "SST 1 Mirror 4 fmb"
+    _baseline_: true
   mir3:
     prefix: "XF:07ID1-OP{Mir:M3ABC"
     name: "SST 1 Mirror 3 fmb"
+    _baseline_: true
   mir1:
     prefix: "XF:07IDA-OP{Mir:M1"
     name: "SST 1 Mirror 1 fmb"
+    _baseline_: true
+  mir5:
+    prefix: "XF:07ID2-OP{Mir:M5C"
+    name: "SST 1 Mirror 5 fmb"
 motors:
   _default:
     _target_: sst_base.motors.PrettyMotorFMBO
@@ -187,6 +187,9 @@ motors:
   Exit_Slit:
     prefix: "XF:07ID2-BI{Slt:11-Ax:YGap}Mtr"
     name: "Exit Slit of Mono Vertical Gap"
+    _extra_:
+      description: "Mono Vertical Exit Slit"
+    _baseline_: true
   grating:
     prefix: "XF:07ID1-OP{Mono:PGM1-Ax:GrtP}Mtr"
     name: "Mono Grating"
@@ -196,6 +199,7 @@ motors:
   gratingx:
     prefix: "XF:07ID1-OP{Mono:PGM1-Ax:GrtX}Mtr"
     name: "Mono Grating"
+    _baseline_: true
   mirror2x:
     prefix: "XF:07ID1-OP{Mono:PGM1-Ax:MirX}Mtr"
     name: "Mono Mirror"
@@ -203,10 +207,12 @@ motors:
     _target_: sst_base.motors.PrettyMotor
     prefix: "XF:07ID1-BI{I0Up-Ax:Upper}Mtr"
     name: "i0upAu"
+    _baseline_: true
   tesz:
     _target_: sst_base.motors.PrettyMotor
     prefix: "XF:07ID1-BI{UCAL-Ax:DetX}Mtr"
     name: "tesz"
+    _baseline_: true
 shutters:
   _default:
     _target_: sst_base.shutters.EPS_Shutter
@@ -222,10 +228,15 @@ shutters:
     name: "Hutch Photon Shutter"
   psh10:
     prefix: "XF:07IDA-PPS{PSh:10}"
-    name: "Upstream Photon Shutter"
+    name: "Photon Shutter 10"
+  psh8:
+    prefix: "XF:07IDA-PPS{PSh:8}"
+    name: "Photon Shutter 8"
   psh7:
     prefix: "XF:07IDA-PPS{PSh:7}"
-    name: "Downstream Photon Shutter"
+    name: "Photon Shutter 7"
+    _extra_:
+      default: True
 signals:
   _default:
     _target_: ophyd.EpicsSignalRO
@@ -245,25 +256,14 @@ vacuum:
   _default:
     _target_: ophyd.EpicsSignalRO
     kind: hinted
-  rsoxs_ccg_izero:
-    prefix: "XF:07IDB-VA:2{RSoXS:DM-CCG:1}P:Raw-I"
-    name: "IZero Chamber Cold Cathode Gauge"
-  rsoxs_pg_izero:
-    prefix: "XF:07IDB-VA:2{RSoXS:DM-TCG:1}P:Raw-I"
-    name: "IZero Chamber Pirani Gauge"
-  rsoxs_ccg_main:
-    prefix: "XF:07IDB-VA:2{RSoXS:Main-CCG:1}P:Raw-I"
-    name: "Main Chamber Chamber Cold Cathode Gauge"
-  rsoxs_pg_main:
-    prefix: "XF:07IDB-VA:2{RSoXS:Main-TCG:1}P:Raw-I"
-    name: "Main Chamber Pirani Gauge"
-  rsoxs_ccg_ll:
-    prefix: "XF:07IDB-VA:2{RSoXS:LL-CCG:1}P:Raw-I"
-    name: "Load Lock Chamber Cold Cathode Gauge"
-  rsoxs_pg_ll:
-    prefix: "XF:07IDB-VA:2{RSoXS:LL-TCG:1}P:Raw-I"
-    name: "Load Lock Pirani Gauge"
-  rsoxs_ll_gpwr:
-    _target_: ophyd.EpicsSignal
-    prefix: "XF:07IDB-VA:2{RSoXS:LL-CCG:1}Pwr-Cmd"
-    name: "Power to Load Lock Gauge"
+  nexafs_ll_vac:
+    prefix: "XF:07ID-VA{TPG:1-Ch:4}P"
+    name: "NEXAFS Loadlock Gauge"
+  nexafs_i0_vac:
+    prefix: "XF:07ID-VA{TPG:1-Ch:6}P"
+    name: "NEXAFS I0 Gauge"
+    _baseline_: true
+  nexafs_main_vac:
+    prefix: "XF:07IDB-VA:1{NEXAFS:Main-HCG:1}P:Raw-I"
+    name: "NEXAFS Main Gauge"
+    _baseline_: true

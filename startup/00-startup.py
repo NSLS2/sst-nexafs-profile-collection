@@ -16,9 +16,13 @@ import ucal
 from ucal.startup import *
 from ucal.plans.alignment import load_saved_manipulator_calibration
 from bluesky.callbacks import LiveTable
+from bluesky_queueserver import is_re_worker_active
 
-nslsii.configure_base(get_ipython().user_ns, "ucal", publish_documents_with_kafka=True)
+nslsii.configure_base(get_ipython().user_ns, "ucal", bec=False, publish_documents_with_kafka=True)
 
+if is_re_worker_active():
+    RE.waiting_hook = None
+    
 loadfile = beamline_config.get("loadfile", None)
 if loadfile is not None and loadfile != "":
     if beamline_config.get("bar", "") == "Standard 4-sided bar":
@@ -27,6 +31,7 @@ if loadfile is not None and loadfile != "":
 
 print("Loading last saved manipulator calibration")
 RE(load_saved_manipulator_calibration())
+
 
 # sd SupplementalData preprocessor is automatically loaded and
 # subscribed to RunEngine by nslsii.configure_base
