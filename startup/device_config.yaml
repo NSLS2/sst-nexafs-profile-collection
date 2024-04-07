@@ -22,6 +22,12 @@ detectors:
     rescale: -1
     _extra_:
       threshold: 0.15
+  ucal_sc:
+    prefix: "XF:07ID-BI[ADC:2-Ch:1]"
+    name: "ucal_sc"
+    rescale: -1
+    _extra_:
+      threshold: 0.15
   ref:
     prefix: "XF:07ID-BI[ADC:1-Ch:5]"
     name: "nexafs_ref"
@@ -244,6 +250,7 @@ signals:
   ring_current:
     prefix: "SR:OPS-BI{DCCT:1}I:Real-I"
     name: "NSLS-II Ring Current"
+    _baseline_: true
   sst_control:
     prefix: "XF:07ID1-CT{Bl-Ctrl}Endstn-Sel"
     name: "SST endstation in Control"
