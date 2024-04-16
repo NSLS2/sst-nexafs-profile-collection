@@ -25,12 +25,13 @@ if is_re_worker_active():
     
 loadfile = beamline_config.get("loadfile", None)
 if loadfile is not None and loadfile != "":
+    print("Loading last samples")
     if beamline_config.get("bar", "") == "Standard 4-sided bar":
         load_standard_four_sided_bar(loadfile)
         sampleholder.print_samples()
-
+    RE(load_saved_manipulator_calibration())
 print("Loading last saved manipulator calibration")
-RE(load_saved_manipulator_calibration())
+
 
 
 # sd SupplementalData preprocessor is automatically loaded and
