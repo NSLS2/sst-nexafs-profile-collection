@@ -1,0 +1,451 @@
+[adr]
+_target = "sst_tes.adr.EPICS_ADR"
+prefix = "XF:07ID-ES{UCAL:ADR}"
+name = "adr"
+
+[i0]
+_target = "sst_base.detectors.scalar.ADCBuffer"
+_group = "detectors"
+prefix = "XF:07ID-BI[ADC:1-Ch:7]"
+name = "nexafs_i0up"
+rescale = -1
+
+[i1]
+_target = "sst_base.detectors.scalar.ADCBuffer"
+_group = "detectors"
+prefix = "XF:07ID-BI[ADC:2-Ch:3]"
+name = "nexafs_i1"
+rescale = -1
+
+[ucal_sc]
+_target = "sst_base.detectors.scalar.ADCBuffer"
+_group = "detectors"
+prefix = "XF:07ID-BI[ADC:2-Ch:1]"
+name = "ucal_sc"
+rescale = -1
+
+[ref]
+_target = "sst_base.detectors.scalar.ADCBuffer"
+_group = "detectors"
+prefix = "XF:07ID-BI[ADC:1-Ch:5]"
+name = "nexafs_ref"
+rescale = -1
+
+[sc]
+_target = "sst_base.detectors.scalar.ADCBuffer"
+_group = "detectors"
+prefix = "XF:07ID-BI[ADC:1-Ch:4]"
+name = "nexafs_sc"
+rescale = -1
+
+[pey]
+_target = "sst_base.detectors.scalar.ADCBuffer"
+_group = "detectors"
+prefix = "XF:07ID-BI[ADC:1-Ch:6]"
+name = "nexafs_pey"
+
+[m4cd]
+_target = "sst_base.detectors.scalar.ADCBuffer"
+_group = "detectors"
+prefix = "XF:07ID-BI[ADC:2-Ch:4]"
+name = "m4cd"
+
+[tes]
+_target = "sst_tes.mca_tes.TESMCA"
+_group = "detectors"
+prefix = ""
+name = "tes"
+address = "10.66.48.41"
+path = "/data/raw"
+setFilenamePattern = false
+port = 4000
+
+[dm7]
+_target = "sst_base.motors.PrettyMotor"
+prefix = "XF:07ID2-BI{Diag:07-Ax:Y}Mtr"
+name = "DM7Motor"
+
+[dm8]
+_target = "sst_base.motors.PrettyMotor"
+prefix = "XF:07ID2-BI{Diag:08-Ax:Y}Mtr"
+name = "DM8Motor"
+
+[Shutter_enable]
+_target = "ophyd.EpicsSignal"
+kind = "normal"
+prefix = "XF:07IDB-CT{DIODE-MTO:1}OutMaskBit:2-Sel"
+name = "RSoXS Shutter Toggle Enable"
+
+[Shutter_enable1]
+_target = "ophyd.EpicsSignal"
+kind = "normal"
+prefix = "XF:07IDB-CT{DIODE-MTO:1}InMaskBit:1-Sel"
+name = "RSoXS Shutter Toggle Enable In1"
+
+[Shutter_enable2]
+_target = "ophyd.EpicsSignal"
+kind = "normal"
+prefix = "XF:07IDB-CT{DIODE-MTO:1}InMaskBit:2-Sel"
+name = "RSoXS Shutter Toggle Enable In2"
+put_complete = false
+auto_monitor = false
+
+[Shutter_enable3]
+_target = "ophyd.EpicsSignal"
+kind = "normal"
+prefix = "XF:07IDB-CT{DIODE-MTO:1}InMaskBit:3-Sel"
+name = "RSoXS Shutter Toggle Enable In3"
+
+[Shutter_control]
+_target = "ophyd.EpicsSignal"
+kind = "normal"
+prefix = "XF:07IDB-CT{DIODE-Local:1}OutPt01:Data-Sel"
+name = "RSoXS Shutter Toggle"
+
+[Shutter_delay]
+_target = "ophyd.EpicsSignal"
+kind = "normal"
+prefix = "XF:07IDB-CT{DIODE-MTO:1}OutDelaySet:2-SP"
+name = "RSoXS Shutter Delay (ms)"
+
+[Shutter_open_time]
+_target = "ophyd.EpicsSignal"
+kind = "normal"
+prefix = "XF:07IDB-CT{DIODE-MTO:1}OutWidthSet:2-SP"
+name = "RSoXS Shutter Opening Time (ms)"
+
+[Shutter_trigger]
+_target = "ophyd.EpicsSignal"
+kind = "normal"
+prefix = "XF:07IDB-CT{DIODE-MTO:1}Trigger:PV-Cmd"
+name = "RSoXS Shutter Trigger"
+
+[Light_control]
+_target = "ophyd.EpicsSignal"
+kind = "normal"
+prefix = "XF:07IDB-CT{DIODE-Local:1}OutPt05:Data-Sel"
+name = "RSoXS Light Toggle"
+
+[en]
+_target = "sst_hw.energy.EnPos"
+_group = "source"
+prefix = ""
+name = "en"
+
+[gv14]
+prefix = "XF:07IDA-VA:2{FS:6-GV:1}"
+name = "Pre Mono Gate Valve"
+_target = "sst_base.shutters.EPS_Shutter"
+_group = "gatevalves"
+kind = "hinted"
+shutter_type = "GV"
+openval = 0
+closeval = 1
+
+[gv14a]
+_target = "sst_base.shutters.EPS_Shutter"
+_group = "gatevalves"
+kind = "hinted"
+shutter_type = "GV"
+openval = 0
+closeval = 1
+prefix = "XF:07IDA-VA:2{FS:6-GV:2}"
+name = "Mono Gate Valve"
+
+[gv15]
+_target = "sst_base.shutters.EPS_Shutter"
+_group = "gatevalves"
+kind = "hinted"
+shutter_type = "GV"
+openval = 0
+closeval = 1
+prefix = "XF:07IDB-VA:2{Mono:PGM-GV:1}"
+name = "Pre Shutter Gate Valve"
+
+[gv26]
+_target = "sst_base.shutters.EPS_Shutter"
+_group = "gatevalves"
+kind = "hinted"
+shutter_type = "GV"
+prefix = "XF:07IDB-VA:2{Mir:M3C-GV:1}"
+name = "Post Shutter Gate Valve"
+openval = 1
+closeval = 0
+
+[gv27]
+_target = "sst_base.shutters.EPS_Shutter"
+_group = "gatevalves"
+kind = "hinted"
+shutter_type = "GV"
+prefix = "XF:07IDB-VA:3{Slt:C-GV:1}"
+name = "Upstream Gate Valve"
+openval = 1
+closeval = 0
+
+[gv27a]
+_target = "sst_base.shutters.EPS_Shutter"
+_group = "gatevalves"
+kind = "hinted"
+shutter_type = "GV"
+prefix = "XF:07IDB-VA:2{RSoXS:Main-GV:1}"
+name = "Izero-Main Gate Valve"
+openval = 1
+closeval = 0
+
+[gv28]
+_target = "sst_base.shutters.EPS_Shutter"
+_group = "gatevalves"
+kind = "hinted"
+shutter_type = "GV"
+prefix = "XF:07IDB-VA:2{BT:1-GV:1}"
+name = "Downstream Gate Valve"
+openval = 1
+closeval = 0
+
+[gvTEM]
+_target = "sst_base.shutters.EPS_Shutter"
+_group = "gatevalves"
+kind = "hinted"
+shutter_type = "GV"
+openval = 0
+closeval = 1
+prefix = "XF:07IDB-VA:2{RSoXS:Main-GV:2}"
+name = "TEM Load Lock Gate Valve"
+
+[gvll]
+_target = "sst_base.shutters.EPS_Shutter"
+_group = "gatevalves"
+kind = "hinted"
+shutter_type = "GV"
+openval = 0
+closeval = 1
+prefix = "XF:07IDB-VA:2{RSoXS:LL-GV:1}"
+name = "Load Lock Gate Valve"
+
+[gvturbo]
+_target = "sst_base.shutters.EPS_Shutter"
+_group = "gatevalves"
+kind = "hinted"
+shutter_type = "GV"
+openval = 0
+closeval = 1
+prefix = "XF:07IDB-VA:2{RSoXS:TP-GV:1}"
+name = "Turbo Gate Valve"
+
+[manipulator]
+_target = "nbs_bl.manipulators.ManipulatorBuilderNEXAFS"
+_group = "manipulators"
+_role = "primary_manipulator"
+prefix = "XF:07ID1-BI{NXFS-Ax:"
+name = "manip"
+
+[multimesh]
+_target = "nbs_bl.manipulators.MultiMeshBuilder"
+_group = "manipulators"
+prefix = "XF:07ID1-BI{I0Up-Ax:"
+name = "i0upmultimesh"
+
+
+[mir2_type]
+_target = "ophyd.EpicsSignal"
+kind = "hinted"
+prefix = "XF:07ID1-OP{Mono:PGM1-Ax:MirX}Mtr_TYPE_MON"
+name = "SST 1 Mirror 2 Stripe"
+
+[mir4]
+_target = "sst_base.mirrors.FMBHexapodMirror"
+_group = "mirrors"
+kind = "hinted"
+prefix = "XF:07ID2-OP{Mir:M4CD"
+name = "SST 1 Mirror 4 fmb"
+
+
+[mir3]
+_target = "sst_base.mirrors.FMBHexapodMirror"
+_group = "mirrors"
+kind = "hinted"
+prefix = "XF:07ID1-OP{Mir:M3ABC"
+name = "SST 1 Mirror 3 fmb"
+
+
+[mir1]
+_target = "sst_base.mirrors.FMBHexapodMirror"
+_group = "mirrors"
+kind = "hinted"
+prefix = "XF:07IDA-OP{Mir:M1"
+name = "SST 1 Mirror 1 fmb"
+
+
+[mir5]
+_target = "sst_base.mirrors.FMBHexapodMirror"
+_group = "mirrors"
+kind = "hinted"
+prefix = "XF:07ID2-OP{Mir:M5C"
+name = "SST 1 Mirror 5 fmb"
+
+[Exit_Slit]
+_target = "sst_base.motors.PrettyMotorFMBO"
+_group = ["motors", "apertures"]
+_role = "slits"
+kind = "hinted"
+prefix = "XF:07ID2-BI{Slt:11-Ax:YGap}Mtr"
+name = "eslit"
+
+[i0upAu]
+_target = "sst_base.motors.PrettyMotor"
+_group = "motors"
+kind = "hinted"
+prefix = "XF:07ID1-BI{I0Up-Ax:Upper}Mtr"
+name = "i0upAu"
+
+
+[tesz]
+_target = "sst_base.motors.PrettyMotor"
+_group = "motors"
+kind = "hinted"
+prefix = "XF:07ID1-BI{UCAL-Ax:DetX}Mtr"
+name = "tesz"
+
+
+[psh1]
+_target = "sst_base.shutters.EPS_Shutter"
+_group = "shutters"
+openval = 0
+closeval = 1
+prefix = "XF:07ID-PPS{Sh:FE}"
+name = "Front-End Shutter"
+shutter_type = "FE"
+
+[psh4]
+_target = "sst_base.shutters.EPS_Shutter"
+_group = "shutters"
+shutter_type = "PH"
+openval = 0
+closeval = 1
+prefix = "XF:07IDA-PPS{PSh:4}"
+name = "Hutch Photon Shutter"
+
+[psh10]
+_target = "sst_base.shutters.EPS_Shutter"
+_group = "shutters"
+shutter_type = "PH"
+openval = 0
+closeval = 1
+prefix = "XF:07IDA-PPS{PSh:10}"
+name = "Photon Shutter 10"
+
+[psh8]
+_target = "sst_base.shutters.EPS_Shutter"
+_group = "shutters"
+shutter_type = "PH"
+openval = 0
+closeval = 1
+prefix = "XF:07IDA-PPS{PSh:8}"
+name = "Photon Shutter 8"
+
+[psh7]
+_target = "sst_base.shutters.EPS_Shutter"
+_group = "shutters"
+_role = "default_shutter"
+shutter_type = "PH"
+openval = 0
+closeval = 1
+prefix = "XF:07IDA-PPS{PSh:7}"
+name = "Photon Shutter 7"
+
+[ring_current]
+_target = "ophyd.EpicsSignalRO"
+_group = "signals"
+_role = "beam_current"
+kind = "normal"
+prefix = "SR:OPS-BI{DCCT:1}I:Real-I"
+name = "NSLS-II Ring Current"
+
+
+[sst_control]
+_target = "ophyd.EpicsSignalRO"
+_group = "signals"
+kind = "normal"
+prefix = "XF:07ID1-CT{Bl-Ctrl}Endstn-Sel"
+name = "SST endstation in Control"
+string = true
+
+[ring_status]
+_target = "ophyd.EpicsSignalRO"
+_group = "signals"
+_role = "beam_status"
+kind = "normal"
+prefix = "SR-OPS{}Mode-Sts"
+name = "NSLS-II Ring Status"
+string = true
+
+[nexafs_ll_vac]
+_target = "ophyd.EpicsSignalRO"
+_group = "vacuum"
+kind = "hinted"
+prefix = "XF:07ID-VA{TPG:1-Ch:4}P"
+name = "NEXAFS Loadlock Gauge"
+
+[nexafs_i0_vac]
+_target = "ophyd.EpicsSignalRO"
+_group = "vacuum"
+kind = "hinted"
+prefix = "XF:07ID-VA{TPG:1-Ch:6}P"
+name = "NEXAFS I0 Gauge"
+
+
+[nexafs_main_vac]
+_target = "ophyd.EpicsSignalRO"
+_group = "vacuum"
+kind = "hinted"
+prefix = "XF:07IDB-VA:1{NEXAFS:Main-HCG:1}P:Raw-I"
+name = "NEXAFS Main Gauge"
+
+[manipx]
+_alias = "manipulator.x"
+_group = "motors"
+
+[manipy]
+_alias = "manipulator.y"
+_group = "motors"
+
+[manipz]
+_alias = "manipulator.z"
+_group = "motors"
+
+[manipr]
+_alias = "manipulator.r"
+_group = "motors"
+
+[samplex]
+_alias = "manipulator.sx"
+_group = "motors"
+
+[sampley]
+_alias = "manipulator.sy"
+_group = "motors"
+
+[samplez]
+_alias = "manipulator.sz"
+_group = "motors"
+
+[sampler]
+_alias = "manipulator.sr"
+_group = "motors"
+
+[energy]
+_alias = "en.energy"
+_group = "motors"
+_role = "energy"
+
+[polarization]
+_alias = "en.polarization"
+_group = "motors"
+
+[eslit]
+_alias = "Exit_Slit"
+
+[multimeshx]
+_alias = "multimesh.x"
+_group = "motors"
+

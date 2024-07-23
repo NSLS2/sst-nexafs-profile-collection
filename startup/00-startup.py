@@ -1,6 +1,7 @@
-import sys
-from pathlib import Path
+#import sys
+#from pathlib import Path
 
+"""
 paths = [
     path
     for path in Path(
@@ -10,13 +11,18 @@ paths = [
 ]
 for path in paths:
     sys.path.append(str(path))
+"""
 
 import nslsii
-import ucal
-from ucal.startup import *
-from ucal.plans.alignment import load_saved_manipulator_calibration
-from bluesky.callbacks import LiveTable
+#import ucal
+#from ucal.startup import *
+#from ucal.plans.alignment import load_saved_manipulator_calibration
+#from bluesky.callbacks import LiveTable
 from bluesky_queueserver import is_re_worker_active
+
+from nbs_bl.configuration import load_and_configure_everything
+
+load_and_configure_everything()
 
 nslsii.configure_base(get_ipython().user_ns, "ucal", bec=False, publish_documents_with_kafka=True)
 

@@ -1,30 +1,32 @@
 [gui.tabs]
-include = ["sst-gui-queue", "sst-gui-monitor", "sst-gui-motors", "sst-gui-plans", "sst-gui-samples", "sst-gui-console", "kafka-table-tab"]
+include = ["nbs-gui-queue", "nbs-gui-monitor", "nbs-gui-motors", "nbs-gui-plans", "nbs-gui-samples", "nbs-gui-console", "kafka-table-tab"]
 
 [models.beamline]
 primary_energy = "en"
 primary_manipulator = "manipulator"
+loader = "nbs_bl.qt.models.beamline.SSTBeamlineModel"
 
-[devices.controllers]
-exclude = true
-
-[devices.mirrors]
-exclude = true
-
-[devices.dms]
-exclude = true
-
-[devices.detectors]
+[devices]
 i0mir = { exclude = true }
 tes = { exclude = true }
-
-[devices.shutters]
 psh8 = { visible = false }
+psh1 = { visible = false }
+en = { "_role" = "energy" }
 
 [loaders]
-"NewEnPos" = "ucal.qt.models.energy.energyFromOphyd"
-"EnPos" = "ucal.qt.models.energy.energyFromOphyd"
-"ManipulatorBuilderNEXAFS" = "sst_gui.loaders.manipulatorFromOphyd"
+NewEnPos = "ucal.qt.models.energy.EnergyModel"
+EnPos = "ucal.qt.models.energy.EnergyModel"
+ManipulatorBuilderNEXAFS = "nbs_gui.models.ManipulatorModel"
+MultiMeshBuilder = "nbs_gui.models.ManipulatorModel"
+PrettyMotorFMBO = "nbs_gui.models.MotorModel"
+PrettyMotor = "nbs_gui.models.MotorModel"
+EpicsSignalRO = "nbs_gui.models.PVModelRO"
+EpicsSignal = "nbs_gui.models.PVModel"
+ShutterSet = "nbs_gui.models.GVModel"
+EPS_Shutter = "nbs_gui.models.GVModel"
+ADCBuffer = "nbs_gui.models.ScalarModel"
+FMBHexapodMirror = "nbs_gui.models.MotorTupleModel"
+
 
 [kafka]
 config_file = "/etc/bluesky/kafka.yml"
