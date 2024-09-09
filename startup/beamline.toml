@@ -1,19 +1,21 @@
+[configuration]
+baseline = ['motors', 'shutters', 'mirrors', 'manipulators']
 
-
-[detectors.configuration]
+[devices]
 i0 = { threshold = 0.1, description = "Gold Mesh" }
 i1 = { threshold = 0.15, description = "Back Dioide" }
 sc = { threshold = 0.1 }
 ref = { threshold = 0.1 }
+psh7 = { default = true }
 
 [detectors.alignment]
 indirect = "i1"
 direct = "sc"
 
-[detectors.sets.default]
+[detectors_sets.default]
 primary = ["sc", "tes"]
 normalization = "i0"
 reference = "ref"
 
-[shutters.configuration]
-psh7 = { default = true }
+[settings]
+modules = ["ucal.startup"]

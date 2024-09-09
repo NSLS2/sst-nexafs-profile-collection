@@ -1,5 +1,5 @@
 [gui.tabs]
-include = ["nbs-gui-queue", "nbs-gui-monitor", "nbs-gui-motors", "nbs-gui-plans", "nbs-gui-samples", "nbs-gui-console", "kafka-table-tab"]
+include = ["nbs-gui-queue", "nbs-gui-monitor", "nbs-gui-motors", "nbs-gui-plans", "ucal-gui-samples", "nbs-gui-console", "kafka-table-tab", "ucal-tes-tab"]
 
 [models.beamline]
 primary_energy = "en"
@@ -8,10 +8,10 @@ loader = "nbs_bl.qt.models.beamline.SSTBeamlineModel"
 
 [devices]
 i0mir = { exclude = true }
-tes = { exclude = true }
 psh8 = { visible = false }
 psh1 = { visible = false }
 en = { "_role" = "energy" }
+tes = { "_group" = "misc" }
 
 [loaders]
 NewEnPos = "ucal.qt.models.energy.EnergyModel"
@@ -26,6 +26,7 @@ ShutterSet = "nbs_gui.models.GVModel"
 EPS_Shutter = "nbs_gui.models.GVModel"
 ADCBuffer = "nbs_gui.models.ScalarModel"
 FMBHexapodMirror = "nbs_gui.models.MotorTupleModel"
+TESMCAFactory = "ucal.qt.models.tesModel.TESModel"
 
 
 [kafka]
