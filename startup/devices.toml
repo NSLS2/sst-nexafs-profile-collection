@@ -57,8 +57,8 @@ prefix = "XF:07ID-ES{UCAL}:"
 mcaPrefix = "XF:07ID-ES{UCAL:ROIS}:"
 name = "tes"
 address = "10.66.48.41"
-path = "/data/raw"
-setFilenamePattern = false
+path = "/nsls2/data/sst/proposals/2024-3/pass-316367/assets/ucal-1/%Y/%m/%2d"
+setFilenamePattern = true
 port = 4000
 
 [dm7]
