@@ -1,3 +1,6 @@
+[gui]
+header = "ucal-header-widget"
+
 [gui.tabs]
 include = ["nbs-gui-queue", "nbs-gui-monitor", "nbs-gui-motors", "nbs-gui-plans", "ucal-gui-samples", "nbs-gui-console", "kafka-table-tab", "ucal-tes-tab"]
 

@@ -19,3 +19,7 @@ reference = "ref"
 
 [settings]
 modules = ["ucal.startup"]
+
+[settings.redis]
+host = "info.sst.nsls2.bnl.gov"
+prefix = "nexafs-"
