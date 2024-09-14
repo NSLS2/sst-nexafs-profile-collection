@@ -246,6 +246,12 @@ _group = "manipulators"
 prefix = "XF:07ID1-BI{I0Up-Ax:"
 name = "i0upmultimesh"
 
+[sampleholder]
+_target = "ucal.sampleholder.SampleHolderFactory"
+_role = "sampleholder"
+_load_order = 2
+name = "sampleholder"
+prefix = ""
 
 [mir2_type]
 _target = "ophyd.EpicsSignal"

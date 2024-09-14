@@ -22,6 +22,7 @@ from nslsii.common.ipynb.logutils import log_exception
 from bluesky_queueserver import is_re_worker_active
 
 from nbs_bl.configuration import load_and_configure_everything
+from nbs_bl.globalVars import GLOBAL_BEAMLINE
 from tiled.client import from_profile
 import os
 
@@ -70,7 +71,19 @@ if loadfile is not None and loadfile != "":
     RE(load_saved_manipulator_calibration())
 print("Loading last saved manipulator calibration")
 
-
+print("Setting TES Path")
+if 'tes' in GLOBAL_BEAMLINE.devices:
+    def make_dynamic_path():
+        yearstr = RE.md.get('cycle', None)
+        datasession = RE.md.get('data_session', None)
+        if yearstr is None or datasession is None:
+            print("Not enough info to set TES File Path")
+            return None
+        else:
+            path = f"/nsls2/data/sst/proposals/{yearstr}/{datasession}/assets/ucal-1/%Y/%m/%2d"
+            return path
+    tes._dynamic_path = make_dynamic_path
+        
 
 # sd SupplementalData preprocessor is automatically loaded and
 # subscribed to RunEngine by nslsii.configure_base
