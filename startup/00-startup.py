@@ -22,8 +22,9 @@ from nslsii.common.ipynb.logutils import log_exception
 from bluesky_queueserver import is_re_worker_active
 
 from nbs_bl.configuration import load_and_configure_everything
-from nbs_bl.globalVars import GLOBAL_BEAMLINE
+from nbs_bl.beamline import GLOBAL_BEAMLINE
 from tiled.client import from_profile
+import time
 import os
 
 
@@ -61,7 +62,8 @@ configure_kafka_publisher(RE, beamline_name="ucal")
 
 if is_re_worker_active():
     RE.waiting_hook = None
-    
+
+""" Need to update with new manipulator stuff
 loadfile = beamline_config.get("loadfile", None)
 if loadfile is not None and loadfile != "":
     print("Loading last samples")
@@ -70,15 +72,22 @@ if loadfile is not None and loadfile != "":
         sampleholder.print_samples()
     RE(load_saved_manipulator_calibration())
 print("Loading last saved manipulator calibration")
+"""
 
 print("Setting TES Path")
 if 'tes' in GLOBAL_BEAMLINE.devices:
     def make_dynamic_path():
         yearstr = RE.md.get('cycle', None)
         datasession = RE.md.get('data_session', None)
+        is_commissioning = "commissioning" in RE.md.get('proposal', {}).get("type", "").lower()
         if yearstr is None or datasession is None:
             print("Not enough info to set TES File Path")
             return None
+        elif is_commissioning:
+            #path_dated_subdir = time.strftime("%Y/%m/%d", time.localtime())
+            #path = f"/nsls2/data/sst/proposals/{yearstr}/{datasession}/assets/ucal-1/{path_dated_subdir}"
+            path = f"/nsls2/data/sst/proposals/commissioning/{datasession}/assets/ucal-1/%Y/%m/%2d"
+            return path
         else:
             path = f"/nsls2/data/sst/proposals/{yearstr}/{datasession}/assets/ucal-1/%Y/%m/%2d"
             return path

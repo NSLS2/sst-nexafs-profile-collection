@@ -1,5 +1,8 @@
 [configuration]
 baseline = ['motors', 'shutters', 'mirrors', 'manipulators']
+has_slits = true
+has_motorized_samples = true
+has_motorized_eref = true
 
 [devices]
 i0 = { threshold = 0.1, description = "Gold Mesh" }
@@ -19,6 +22,7 @@ reference = "ref"
 
 [settings]
 modules = ["ucal.startup"]
+regions = ["regions.toml"]
 
 [settings.redis]
 host = "info.sst.nsls2.bnl.gov"

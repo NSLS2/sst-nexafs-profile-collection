@@ -128,8 +128,9 @@ prefix = "XF:07IDB-CT{DIODE-Local:1}OutPt05:Data-Sel"
 name = "RSoXS Light Toggle"
 
 [en]
-_target = "sst_hw.energy.EnPos"
+_target = "sst_hw.energy.EnPosFactory"
 _group = "source"
+_load_order = 2
 prefix = ""
 name = "en"
 
@@ -241,17 +242,11 @@ prefix = "XF:07ID1-BI{NXFS-Ax:"
 name = "manip"
 
 [multimesh]
-_target = "sst_base.manipulator.MultiMeshBuilder"
+_target = "ucal.multimesh.MultiMeshBuilder"
 _group = "manipulators"
+_role = "reference_sampleholder"
 prefix = "XF:07ID1-BI{I0Up-Ax:"
 name = "i0upmultimesh"
-
-[sampleholder]
-_target = "ucal.sampleholder.SampleHolderFactory"
-_role = "sampleholder"
-_load_order = 2
-name = "sampleholder"
-prefix = ""
 
 [mir2_type]
 _target = "ophyd.EpicsSignal"
@@ -444,6 +439,7 @@ _group = "motors"
 _alias = "en.energy"
 _group = "motors"
 _role = "energy"
+_load_order = 2
 
 [polarization]
 _alias = "en.polarization"

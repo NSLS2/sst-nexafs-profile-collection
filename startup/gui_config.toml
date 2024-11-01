@@ -4,6 +4,7 @@ header = "ucal-header-widget"
 [gui.tabs]
 include = ["nbs-gui-queue", "nbs-gui-monitor", "nbs-gui-motors", "ucal-gui-samples", "nbs-gui-console", "kafka-table-tab", "ucal-tes-tab"]
 
+
 [models.beamline]
 primary_energy = "en"
 primary_manipulator = "manipulator"
@@ -12,13 +13,13 @@ loader = "nbs_bl.qt.models.beamline.SSTBeamlineModel"
 [devices]
 i0mir = { exclude = true }
 psh8 = { visible = false }
-psh1 = { visible = false }
-en = { "_role" = "energy" }
+psh1 = { visible = false, view_only = true }
+en = { "_role" = "energy", "load_order" = 1 }
 tes = { "_group" = "misc" }
 
 [loaders]
 NewEnPos = "ucal.qt.models.energy.EnergyModel"
-EnPos = "ucal.qt.models.energy.EnergyModel"
+EnPosFactory = "ucal.qt.models.energy.EnergyModel"
 ManipulatorBuilderNEXAFS = "nbs_gui.models.ManipulatorModel"
 MultiMeshBuilder = "nbs_gui.models.ManipulatorModel"
 PrettyMotorFMBO = "nbs_gui.models.MotorModel"
