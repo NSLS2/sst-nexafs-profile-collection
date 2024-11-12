@@ -15,7 +15,8 @@ for path in paths:
 
 from nslsii import configure_kafka_publisher, configure_bluesky_logging, configure_ipython_logging
 from nslsii.common.ipynb.logutils import log_exception
-#import ucal
+from bluesky.plan_stubs import mv as _mv, mvr as _mvr
+
 #from ucal.startup import *
 #from ucal.plans.alignment import load_saved_manipulator_calibration
 #from bluesky.callbacks import LiveTable
@@ -73,6 +74,18 @@ if loadfile is not None and loadfile != "":
     RE(load_saved_manipulator_calibration())
 print("Loading last saved manipulator calibration")
 """
+
+# A bug in bluesky 1.13 causes QueueServer validation to fail
+# for mv and mvr due to an unserializable type annotation (NamedMovable)
+# Redefine without type annotation to fix temporarily
+def mv(*args, group=None, **kwargs):
+    yield from _mv(*args, group=group, **kwargs)
+
+def mvr(*args, group=None, **kwargs):
+    yield from _mvr(*args, group=group, **kwargs)
+
+move = mv
+
 
 print("Setting TES Path")
 if 'tes' in GLOBAL_BEAMLINE.devices:

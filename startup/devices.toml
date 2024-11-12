@@ -444,6 +444,8 @@ _load_order = 2
 [polarization]
 _alias = "en.polarization"
 _group = "motors"
+_role = "polarization"
+_load_order = 2
 
 [eslit]
 _alias = "Exit_Slit"

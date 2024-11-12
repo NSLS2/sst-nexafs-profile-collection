@@ -10,6 +10,7 @@ i1 = { threshold = 0.15, description = "Back Dioide" }
 sc = { threshold = 0.1 }
 ref = { threshold = 0.1 }
 psh7 = { default = true }
+ring_current = { baseline = true }
 
 [detectors.alignment]
 indirect = "i1"
@@ -22,8 +23,16 @@ reference = "ref"
 
 [settings]
 modules = ["ucal.startup"]
-regions = ["regions.toml"]
 
-[settings.redis]
+[settings.plans]
+xas = ["regions.toml"]
+
+[settings.redis.md]
 host = "info.sst.nsls2.bnl.gov"
 prefix = "nexafs-"
+
+[settings.redis.info]
+host = "info.sst.nsls2.bnl.gov"
+prefix = "nexafs-"
+port = 60737
+db = 4
