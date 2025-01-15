@@ -17,4 +17,4 @@ mo_xas = { edge = "O", region = [220, 225, 0.3, 240, 0.1, 250, 0.3], name = "Mo 
 mo2_xas = { edge = "N", region = [380, 390, 0.3, 415, 0.2, 425, 0.3], name = "Mo M3 Edge XAS"}
 k_xas = {edge = "C", region = [275, 295, 0.2, 310, 0.1, 320, 0.2], name = "K L2,3 Edge XAS"}
 si_xas = {edge = "Si", region = [1820, 1835, 0.5, 1875, 0.2, 1910, 0.5], name = "Si XAS"}
-mg_xas = {edge = "Mg", region = [1230, 1240, 0.3, 1325, 0.2, 1360, 0.5, 1365, 1], name = "Mg XAS"}
+mg_xas = {edge = "Mg", region = [1270, 1300, 0.3, 1340, 0.2, 1360, 0.5, 1380, 1], name = "Mg XAS"}

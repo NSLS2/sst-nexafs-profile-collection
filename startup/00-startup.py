@@ -25,7 +25,7 @@ from bluesky_queueserver import is_re_worker_active
 from nbs_bl.configuration import load_and_configure_everything
 from nbs_bl.beamline import GLOBAL_BEAMLINE
 from tiled.client import from_profile
-import time
+import time as ttime
 import os
 
 
@@ -42,6 +42,46 @@ configure_ipython_logging(exception_logger=log_exception, ipython=ipython)
 ipython.run_line_magic("xmode", "minimal")
 
 tiled_writing_client = from_profile("nsls2", api_key=os.environ["TILED_BLUESKY_WRITING_API_KEY_NEXAFS"])['ucal']['raw']
+#c = tiled_reading_client = from_profile("nsls2")["ucal"]["raw"]
+
+# check the current logged in + active user
+def whoami():
+    try:
+        print(f"\nLogged in to Tiled as: {c.context.whoami()['identities'][0]['id']}\n")
+    except TypeError as e:
+        print("Not authenticated with Tiled! Please login...")
+
+
+# whoami()
+
+
+# logout of Tiled and clear the cached default identities (username)
+def logout():
+    c = getattr(GLOBAL_BEAMLINE, "tiled_reading_client", None)
+    if c is not None:
+        c.logout(clear_default=True)
+
+
+# login to Tiled using the specified username
+# this version automatically logs-out the existing user when called
+def login():
+    c = getattr(GLOBAL_BEAMLINE, "tiled_reading_client", None)
+    if c is None:
+        c = from_profile("nsls2")["ucal"]["raw"]
+        GLOBAL_BEAMLINE.tiled_reading_client = c
+    beamline_username = input("Please enter your username: ")
+    beamline_unauthenticated = (
+        c.context.api_key is None and c.context.http_client.auth is None
+    )
+    if not beamline_unauthenticated:
+        beamline_current_user = c.context.whoami()["identities"][0]["id"]
+        if beamline_username != beamline_current_user:
+            logout()
+
+    c.login(username=beamline_username)
+
+    print(f"Logged in to Tiled as {beamline_username}!")
+
 
 def post_document(name, doc):
     ATTEMPTS = 20
@@ -54,7 +94,7 @@ def post_document(name, doc):
             error = e
         else:
             break
-        time.sleep(2)
+        ttime.sleep(2)
     else:
         raise error
 
@@ -97,7 +137,7 @@ if 'tes' in GLOBAL_BEAMLINE.devices:
             print("Not enough info to set TES File Path")
             return None
         elif is_commissioning:
-            #path_dated_subdir = time.strftime("%Y/%m/%d", time.localtime())
+            #path_dated_subdir = ttime.strftime("%Y/%m/%d", ttime.localtime())
             #path = f"/nsls2/data/sst/proposals/{yearstr}/{datasession}/assets/ucal-1/{path_dated_subdir}"
             path = f"/nsls2/data/sst/proposals/commissioning/{datasession}/assets/ucal-1/%Y/%m/%2d"
             return path

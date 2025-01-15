@@ -61,6 +61,12 @@ path = "/nsls2/data/sst/proposals/2024-3/pass-316367/assets/ucal-1/%Y/%m/%2d"
 setFilenamePattern = true
 port = 4000
 
+[scalar]
+_target = "sst_base.detectors.pxicounter.PXIScalar"
+_group = "detectors"
+prefix = "XF:07ID-BI[Counter:1-"
+name = "pxi_scalar"
+
 [dm7]
 _target = "sst_base.motors.PrettyMotor"
 prefix = "XF:07ID2-BI{Diag:07-Ax:Y}Mtr"
