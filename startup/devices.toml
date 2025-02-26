@@ -4,48 +4,62 @@ prefix = "XF:07ID-ES{UCAL:ADR}"
 name = "adr"
 
 [i0]
-_target = "sst_base.detectors.scalar.ADCBuffer"
+_target = "sst_base.detectors.ADCBuffer"
 _group = "detectors"
 prefix = "XF:07ID-BI[ADC:1-Ch:7]"
 name = "nexafs_i0up"
 rescale = -1
 
 [i1]
-_target = "sst_base.detectors.scalar.ADCBuffer"
+_target = "sst_base.detectors.ADCBuffer"
 _group = "detectors"
 prefix = "XF:07ID-BI[ADC:2-Ch:3]"
 name = "nexafs_i1"
 rescale = -1
 
 [ucal_sc]
-_target = "sst_base.detectors.scalar.ADCBuffer"
+_target = "sst_base.detectors.ADCBuffer"
 _group = "detectors"
 prefix = "XF:07ID-BI[ADC:2-Ch:1]"
 name = "ucal_sc"
 rescale = -1
 
 [ref]
-_target = "sst_base.detectors.scalar.ADCBuffer"
+_target = "sst_base.detectors.ADCBuffer"
 _group = "detectors"
 prefix = "XF:07ID-BI[ADC:1-Ch:5]"
 name = "nexafs_ref"
 rescale = -1
 
+[dm8_diode]
+_target = "sst_base.detectors.ADCBuffer"
+_group = "detectors"
+prefix = "XF:07ID-BI[ADC:2-Ch:6]"
+name = "dm8_diode"
+rescale = -1
+
 [sc]
-_target = "sst_base.detectors.scalar.ADCBuffer"
+_target = "sst_base.detectors.ADCBuffer"
 _group = "detectors"
 prefix = "XF:07ID-BI[ADC:1-Ch:4]"
 name = "nexafs_sc"
 rescale = -1
 
 [pey]
-_target = "sst_base.detectors.scalar.ADCBuffer"
+_target = "sst_base.detectors.ADCBuffer"
 _group = "detectors"
 prefix = "XF:07ID-BI[ADC:1-Ch:6]"
 name = "nexafs_pey"
 
+[pey_grid]
+_target = "ophyd.EpicsSignal"
+_group = "motors"
+prefix = "XF:07ID-ES{WPS:01-LV:u0}V-Sense"
+write_pv = "XF:07ID-ES{WPS:01-LV:u0}V-Set"
+name = "pey_grid"
+
 [m4cd]
-_target = "sst_base.detectors.scalar.ADCBuffer"
+_target = "sst_base.detectors.ADCBuffer"
 _group = "detectors"
 prefix = "XF:07ID-BI[ADC:2-Ch:4]"
 name = "m4cd"
@@ -76,6 +90,7 @@ name = "DM7Motor"
 _target = "sst_base.motors.PrettyMotor"
 prefix = "XF:07ID2-BI{Diag:08-Ax:Y}Mtr"
 name = "DM8Motor"
+_group = "motors"
 
 [Shutter_enable]
 _target = "ophyd.EpicsSignal"
@@ -134,7 +149,7 @@ prefix = "XF:07IDB-CT{DIODE-Local:1}OutPt05:Data-Sel"
 name = "RSoXS Light Toggle"
 
 [en]
-_target = "sst_hw.energy.EnPosFactory"
+_target = "sst_base.energy.EnPosFactory"
 _group = "source"
 _load_order = 2
 prefix = ""

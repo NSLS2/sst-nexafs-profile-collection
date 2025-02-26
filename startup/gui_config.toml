@@ -1,11 +1,11 @@
 [gui]
-header = "ucal-header-widget"
+header = "sst-gui-header"
 
 [gui.tabs]
-include = ["nbs-gui-queue", "nbs-gui-monitor", "ucal-gui-samples", "nbs-gui-console", "kafka-table-tab", "ucal-tes-tab"]
+include = ["nbs-gui-queue", "nbs-gui-monitor", "nbs-gui-console", "kafka-table-tab", "ucal-tes-tab", "sst-gui-samples"]
 
 [gui.plans]
-include = ["nbs-gui-scan", "nbs-gui-move", "nbs-gui-xas", "nbs-gui-timescan", "nbs-gui-varscan", "nbs-gui-flyscan", "ucal-tes-cal", "ucal-tes-setup", "manual-sample-move"]
+include = ["nbs-gui-scan", "nbs-gui-move", "nbs-gui-xas", "nbs-gui-timescan", "nbs-gui-varscan", "nbs-gui-flyscan", "ucal-tes-cal", "ucal-tes-setup", "nbs-gui-samplemove"]
 
 
 [models.beamline]
@@ -21,10 +21,10 @@ en = { "_role" = "energy", "load_order" = 1 }
 tes = { "_group" = "misc" }
 
 [loaders]
-NewEnPos = "ucal.qt.models.energy.EnergyModel"
-EnPosFactory = "ucal.qt.models.energy.EnergyModel"
-ManipulatorBuilderNEXAFS = "nbs_gui.models.ManipulatorModel"
-MultiMeshBuilder = "nbs_gui.models.ManipulatorModel"
+NewEnPos = "sst_base.qt.models.energy.SST1EnergyModel"
+EnPosFactory = "sst_base.qt.models.energy.SST1EnergyModel"
+ManipulatorBuilderNEXAFS = "nbs_gui.models.PseudoPositionerModel"
+MultiMeshBuilder = "nbs_gui.models.PseudoPositionerModel"
 PrettyMotorFMBO = "nbs_gui.models.MotorModel"
 PrettyMotor = "nbs_gui.models.MotorModel"
 EpicsSignalRO = "nbs_gui.models.PVModelRO"

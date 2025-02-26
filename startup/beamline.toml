@@ -26,6 +26,8 @@ reference = "ref"
 [settings]
 modules = ["ucal.startup"]
 tes_processing = "/nsls2/data/sst/shared/config/ucal/processing_status"
+beamline = "sst1"
+
 
 [settings.plans]
 xas = ["regions.toml"]
