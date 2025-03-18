@@ -19,6 +19,16 @@ psh8 = { visible = false }
 psh1 = { visible = false, view_only = true }
 en = { "_role" = "energy", "load_order" = 1 }
 tes = { "_group" = "misc" }
+sc = { label = "TEY" }
+ref = { label = "Multimesh"}
+pey = { label = "PEY" }
+i0 = { label = "I0" }
+i1 = { label = "I1" }
+iref_slit_diode = { label = "Iref Slit" }
+dm8_diode = { label = "DM8 Diode" }
+dm7_diode = { label = "DM7 Diode" }
+m4cd = { label = "M4CD" }
+ucal_sc = { label = "UCAL I0" }
 
 [loaders]
 NewEnPos = "sst_base.qt.models.energy.SST1EnergyModel"
@@ -34,6 +44,7 @@ EPS_Shutter = "nbs_gui.models.GVModel"
 ADCBuffer = "nbs_gui.models.ScalarModel"
 FMBHexapodMirror = "nbs_gui.models.MotorTupleModel"
 TESMCAFactory = "ucal.qt.models.tesModel.TESModel"
+WienerPSFactory = "nbs_gui.models.MotorTupleModel"
 
 
 [kafka]

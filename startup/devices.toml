@@ -3,26 +3,14 @@ _target = "sst_tes.adr.EPICS_ADR"
 prefix = "XF:07ID-ES{UCAL:ADR}"
 name = "adr"
 
-[i0]
+[sc]
 _target = "sst_base.detectors.ADCBuffer"
 _group = "detectors"
-prefix = "XF:07ID-BI[ADC:1-Ch:7]"
-name = "nexafs_i0up"
+prefix = "XF:07ID-BI[ADC:1-Ch:4]"
+name = "nexafs_sc"
 rescale = -1
+gain = 1e-9
 
-[i1]
-_target = "sst_base.detectors.ADCBuffer"
-_group = "detectors"
-prefix = "XF:07ID-BI[ADC:2-Ch:3]"
-name = "nexafs_i1"
-rescale = -1
-
-[ucal_sc]
-_target = "sst_base.detectors.ADCBuffer"
-_group = "detectors"
-prefix = "XF:07ID-BI[ADC:2-Ch:1]"
-name = "ucal_sc"
-rescale = -1
 
 [ref]
 _target = "sst_base.detectors.ADCBuffer"
@@ -30,6 +18,53 @@ _group = "detectors"
 prefix = "XF:07ID-BI[ADC:1-Ch:5]"
 name = "nexafs_ref"
 rescale = -1
+gain = 1e-9
+
+[pey]
+_target = "sst_base.detectors.ADCBuffer"
+_group = "detectors"
+prefix = "XF:07ID-BI[ADC:1-Ch:6]"
+name = "nexafs_pey"
+gain = 1e-8
+
+
+[i0]
+_target = "sst_base.detectors.ADCBuffer"
+_group = "detectors"
+prefix = "XF:07ID-BI[ADC:1-Ch:7]"
+name = "nexafs_i0up"
+rescale = -1
+gain = 1e-9
+
+[ucal_sc]
+_target = "sst_base.detectors.ADCBuffer"
+_group = "detectors"
+prefix = "XF:07ID-BI[ADC:2-Ch:1]"
+name = "ucal_i0"
+rescale = -1
+gain = 1e-9
+
+[i1]
+_target = "sst_base.detectors.ADCBuffer"
+_group = "detectors"
+prefix = "XF:07ID-BI[ADC:2-Ch:3]"
+name = "nexafs_i1"
+rescale = -1
+gain = 1e-6
+
+[m4cd]
+_target = "sst_base.detectors.ADCBuffer"
+_group = "detectors"
+prefix = "XF:07ID-BI[ADC:2-Ch:4]"
+name = "m4cd"
+gain = 1e-6
+
+[iref_slit_diode]
+_target = "sst_base.detectors.ADCBuffer"
+_group = "detectors"
+prefix = "XF:07ID-BI[ADC:2-Ch:5]"
+name = "iref_slit_diode"
+gain = 1e-6
 
 [dm8_diode]
 _target = "sst_base.detectors.ADCBuffer"
@@ -37,32 +72,33 @@ _group = "detectors"
 prefix = "XF:07ID-BI[ADC:2-Ch:6]"
 name = "dm8_diode"
 rescale = -1
+gain = 1e-6
 
-[sc]
+[dm7_diode]
 _target = "sst_base.detectors.ADCBuffer"
 _group = "detectors"
-prefix = "XF:07ID-BI[ADC:1-Ch:4]"
-name = "nexafs_sc"
+prefix = "XF:07ID-BI[ADC:2-Ch:7]"
+name = "dm7_diode"
 rescale = -1
+gain = 1e-6
 
-[pey]
-_target = "sst_base.detectors.ADCBuffer"
-_group = "detectors"
-prefix = "XF:07ID-BI[ADC:1-Ch:6]"
-name = "nexafs_pey"
-
-[pey_grid]
-_target = "ophyd.EpicsSignal"
-_group = "motors"
-prefix = "XF:07ID-ES{WPS:01-LV:u0}V-Sense"
-write_pv = "XF:07ID-ES{WPS:01-LV:u0}V-Set"
-name = "pey_grid"
-
-[m4cd]
-_target = "sst_base.detectors.ADCBuffer"
-_group = "detectors"
-prefix = "XF:07ID-BI[ADC:2-Ch:4]"
-name = "m4cd"
+[wps1]
+_target = "sst_base.wienerPS.WienerPSFactory"
+prefix = "XF:07ID-ES{WPS:01"
+name = "wps1"
+_group = ["motors"]
+lvch0 = "PEY-Grid"
+lvch1 = "DuoA-Grid"
+lvch2 = "DuoB-Grid"
+lvch3 = "LAR1-Grid"
+hvch0 = "PEY-Col"
+hvch1 = "PEY-BE"
+hvch2 = "DuoA-Col"
+hvch3 = "DuoA-BE"
+hvch4 = "DuoB-Col"
+hvch5 = "DuoB-BE"
+hvch6 = "LAR1-MCP"
+hvch7 = "LAR1-Phos"
 
 [tes]
 _target = "sst_tes.mca_tes.TESMCAFactory"
