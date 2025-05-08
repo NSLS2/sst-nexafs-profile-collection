@@ -117,10 +117,24 @@ _group = "detectors"
 prefix = "XF:07ID-BI[Counter:1-"
 name = "pxi_scalar"
 
+[capacitor_box]
+_target = "ophyd.EpicsSignal"
+prefix = "XF:07ID-BI[DO:1-Ch:0_0]Volt.VAL"
+name = "capacitor_box"
+
 [dm7]
 _target = "sst_base.motors.PrettyMotor"
 prefix = "XF:07ID2-BI{Diag:07-Ax:Y}Mtr"
 name = "DM7Motor"
+
+[dm7_cam]
+_target = "sst_base.cameras.StandardProsilicawstatsFactory" 
+_group = "cameras" ## TODO: Does this need another group?
+prefix = "XF:07ID-BI{BPM:13}"
+name = "dm7_cam"
+camera_name = "fs13_cam-1"
+date_template = "%Y/%m"
+read_attrs = ['tiff','stats5']
 
 [dm8]
 _target = "sst_base.motors.PrettyMotor"
@@ -297,6 +311,15 @@ _group = "manipulators"
 _role = "primary_sampleholder"
 prefix = "XF:07ID1-BI{NXFS-Ax:"
 name = "manip"
+
+[sample_cam]
+_target = "sst_base.cameras.StandardProsilicawstatsFactory" 
+_group = ["staged_baseline"] ## TODO: Does this need another group?
+prefix = "XF:07ID-BI{BPM:20}"
+name = "nexafs_sample_cam"
+camera_name = "nexafs_cam-1"
+date_template = "%Y/%m"
+read_attrs = ['tiff','stats5']
 
 [multimesh]
 _target = "ucal.multimesh.MultiMeshBuilder"
