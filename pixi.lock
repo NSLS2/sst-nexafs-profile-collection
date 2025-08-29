@@ -586,12 +586,22 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstandard-0.23.0-py312h4c3975b_3.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstd-1.5.7-hb8e6e7a_2.conda
       - pypi: https://files.pythonhosted.org/packages/5b/08/185c3b29b0698328b202e6c965c23187e2e29ead78cb468aab0a09ee97fc/aioca-1.8.1-py3-none-any.whl
-      - pypi: git+https://github.com/xraygui/nbs-bl?rev=v0.1.1#6230ed757256dea86ef3c65056083e7460836bc8
+      - pypi: https://files.pythonhosted.org/packages/de/8b/65dccc36873290e89c0d1d3c1121f161ff28c37201e0d008cfa664d606b5/bluesky_live-0.0.8-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/26/a9/097beb86e3182126c2d6fa6220d835845cea670976d5351febb0f05bce6c/bluesky_widgets-0.0.17-py3-none-any.whl
+      - pypi: git+https://github.com/xraygui/nbs-bl?branch=planStatusUpdates#710875c645c446546bd6bc0a176757f2e6fa5fbd
       - pypi: git+https://github.com/xraygui/nbs-core?rev=v0.0.2#2c2f50ad423927df146a4e981c3c8c1c45b0f0d0
+      - pypi: git+https://github.com/xraygui/nbs-gui?rev=v0.1.0#0cd384a891008b0f3bbff58d03001b782e8ab73f
       - pypi: https://files.pythonhosted.org/packages/d7/40/e352883ce7ca9364f6429e19a91bb46d40e62e66668a0eb6d17f8de6a84c/ophyd_async-0.9.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/41/2f/f5066e95bb60a3a510727171c79499abed9b623f72e8bbad848634946e0a/p4p-4.2.0-cp312-cp312-manylinux2014_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/67/d8/8af47ecca80c365d5ffcdce6fae78ec71921052189c1486ba9dbac7a36f4/pvxslibs-1.3.2-cp312-cp312-manylinux2014_x86_64.whl
-      - pypi: git+https://github.com/nsls-ii-sst/sst_base#c8b39aa520ca017007519e934f154d6b508d0208
+      - pypi: https://files.pythonhosted.org/packages/69/76/37c0ccd5ab968a6a438f9c623aeecc84c202ab2fabc6a8fd927580c15b5a/QtPy-2.4.3-py3-none-any.whl
+      - pypi: git+https://github.com/nsls-ii-sst/sst-fasstcat#dff762b1ad27df861eb27783471176e3fd762187
+      - pypi: git+https://github.com/nsls-ii-sst/sst_base?rev=v0.1.0#c8b39aa520ca017007519e934f154d6b508d0208
+      - pypi: git+https://github.com/nsls-ii-sst/sst_tes?rev=v0.0.1#2fedbe0585da6bfb6bd0730367c68f664886c54a
+      - pypi: https://files.pythonhosted.org/packages/5d/32/6e723c9fa2847ba268c02377f75a4ae3432ec82fcf1e9776e2b9ca5f18e7/suitcase_utils-0.5.3-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/44/6f/7120676b6d73228c96e17f1f794d8ab046fc910d781c8d151120c3f1569e/toml-0.10.2-py2.py3-none-any.whl
+      - pypi: git+https://github.com/nsls-ii-sst/ucal?rev=v0.1.0#890602cbe131ee50806f42829333721d2ada3d67
+      - pypi: https://files.pythonhosted.org/packages/6e/78/833b2808793c1619835edb1a4e17a023d5d625f4f97ff25ffff986d1f472/zmq-0.0.0.tar.gz
   terminal:
     channels:
     - url: https://conda.anaconda.org/conda-forge/
@@ -655,6 +665,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/bluesky-base-1.14.4-pyhd8ed1ab_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/bluesky-kafka-0.10.0-pyhd8ed1ab_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/bluesky-queueserver-0.0.22-pyhd8ed1ab_2.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/bluesky-queueserver-api-0.0.12-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/bluesky-tiled-plugins-2.0.0b68-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/bokeh-3.7.3-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/boltons-25.0.0-pyhd8ed1ab_0.conda
@@ -1173,12 +1184,22 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstandard-0.23.0-py312h4c3975b_3.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstd-1.5.7-hb8e6e7a_2.conda
       - pypi: https://files.pythonhosted.org/packages/5b/08/185c3b29b0698328b202e6c965c23187e2e29ead78cb468aab0a09ee97fc/aioca-1.8.1-py3-none-any.whl
-      - pypi: git+https://github.com/xraygui/nbs-bl?rev=v0.1.1#6230ed757256dea86ef3c65056083e7460836bc8
+      - pypi: https://files.pythonhosted.org/packages/de/8b/65dccc36873290e89c0d1d3c1121f161ff28c37201e0d008cfa664d606b5/bluesky_live-0.0.8-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/26/a9/097beb86e3182126c2d6fa6220d835845cea670976d5351febb0f05bce6c/bluesky_widgets-0.0.17-py3-none-any.whl
+      - pypi: git+https://github.com/xraygui/nbs-bl?branch=planStatusUpdates#710875c645c446546bd6bc0a176757f2e6fa5fbd
       - pypi: git+https://github.com/xraygui/nbs-core?rev=v0.0.2#2c2f50ad423927df146a4e981c3c8c1c45b0f0d0
+      - pypi: git+https://github.com/xraygui/nbs-gui?rev=v0.1.0#0cd384a891008b0f3bbff58d03001b782e8ab73f
       - pypi: https://files.pythonhosted.org/packages/d7/40/e352883ce7ca9364f6429e19a91bb46d40e62e66668a0eb6d17f8de6a84c/ophyd_async-0.9.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/41/2f/f5066e95bb60a3a510727171c79499abed9b623f72e8bbad848634946e0a/p4p-4.2.0-cp312-cp312-manylinux2014_x86_64.whl
       - pypi: https://files.pythonhosted.org/packages/67/d8/8af47ecca80c365d5ffcdce6fae78ec71921052189c1486ba9dbac7a36f4/pvxslibs-1.3.2-cp312-cp312-manylinux2014_x86_64.whl
-      - pypi: git+https://github.com/nsls-ii-sst/sst_base#c8b39aa520ca017007519e934f154d6b508d0208
+      - pypi: https://files.pythonhosted.org/packages/69/76/37c0ccd5ab968a6a438f9c623aeecc84c202ab2fabc6a8fd927580c15b5a/QtPy-2.4.3-py3-none-any.whl
+      - pypi: git+https://github.com/nsls-ii-sst/sst-fasstcat#dff762b1ad27df861eb27783471176e3fd762187
+      - pypi: git+https://github.com/nsls-ii-sst/sst_base?rev=v0.1.0#c8b39aa520ca017007519e934f154d6b508d0208
+      - pypi: git+https://github.com/nsls-ii-sst/sst_tes?rev=v0.0.1#2fedbe0585da6bfb6bd0730367c68f664886c54a
+      - pypi: https://files.pythonhosted.org/packages/5d/32/6e723c9fa2847ba268c02377f75a4ae3432ec82fcf1e9776e2b9ca5f18e7/suitcase_utils-0.5.3-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/44/6f/7120676b6d73228c96e17f1f794d8ab046fc910d781c8d151120c3f1569e/toml-0.10.2-py2.py3-none-any.whl
+      - pypi: git+https://github.com/nsls-ii-sst/ucal?rev=v0.1.0#890602cbe131ee50806f42829333721d2ada3d67
+      - pypi: https://files.pythonhosted.org/packages/6e/78/833b2808793c1619835edb1a4e17a023d5d625f4f97ff25ffff986d1f472/zmq-0.0.0.tar.gz
 packages:
 - conda: https://conda.anaconda.org/conda-forge/linux-64/_libgcc_mutex-0.1-conda_forge.tar.bz2
   sha256: fe51de6107f9edc7aa4f786a70f4a883943bc9d39b3bb7307c04c41410990726
@@ -1995,6 +2016,18 @@ packages:
   - pkg:pypi/bluesky-kafka?source=hash-mapping
   size: 31972
   timestamp: 1753970402988
+- pypi: https://files.pythonhosted.org/packages/de/8b/65dccc36873290e89c0d1d3c1121f161ff28c37201e0d008cfa664d606b5/bluesky_live-0.0.8-py3-none-any.whl
+  name: bluesky-live
+  version: 0.0.8
+  sha256: e861d3513e12fda08a028fcae81d7cf304fee7cb1e54926473839f1040909b02
+  requires_dist:
+  - dask[array]>=2
+  - entrypoints
+  - event-model>=1.16.0
+  - numpy
+  - pandas
+  - xarray
+  requires_python: '>=3.6'
 - conda: https://conda.anaconda.org/conda-forge/noarch/bluesky-queueserver-0.0.22-pyhd8ed1ab_2.conda
   sha256: b2c4250f918b2c1e1155084c4727d494be425b904439c36bf76ab50141265ec4
   md5: 3874ce2871b620fa25600bf9b2f65ab4
@@ -2052,6 +2085,40 @@ packages:
   - pkg:pypi/bluesky-tiled-plugins?source=hash-mapping
   size: 24367
   timestamp: 1756431274760
+- pypi: https://files.pythonhosted.org/packages/26/a9/097beb86e3182126c2d6fa6220d835845cea670976d5351febb0f05bce6c/bluesky_widgets-0.0.17-py3-none-any.whl
+  name: bluesky-widgets
+  version: 0.0.17
+  sha256: c15740d770ca145b3489637d8ac13acfc357d3e0804074d20176170be0cf966c
+  requires_dist:
+  - bluesky-live>=0.0.7
+  - numpy
+  - suitcase-utils<=0.5.3
+  - bluesky ; extra == 'examples'
+  - databroker ; extra == 'examples'
+  - ophyd>=1.5.3 ; extra == 'examples'
+  - pyzmq ; extra == 'examples'
+  - suitcase-msgpack ; extra == 'examples'
+  - ipywidgets ; extra == 'jupyter'
+  - ipympl ; extra == 'jupyter'
+  - matplotlib ; extra == 'jupyter'
+  - pyside2 ; extra == 'pyside2'
+  - qtpy ; extra == 'pyside2'
+  - matplotlib ; extra == 'pyside2'
+  - pyqt5 ; extra == 'pyqt5'
+  - qtpy ; extra == 'pyqt5'
+  - matplotlib ; extra == 'pyqt5'
+  - pyqt5 ; extra == 'complete'
+  - pyside2 ; extra == 'complete'
+  - bluesky ; extra == 'complete'
+  - databroker ; extra == 'complete'
+  - ipympl ; extra == 'complete'
+  - ipywidgets ; extra == 'complete'
+  - matplotlib ; extra == 'complete'
+  - ophyd>=1.5.3 ; extra == 'complete'
+  - pyzmq ; extra == 'complete'
+  - qtpy ; extra == 'complete'
+  - suitcase-msgpack ; extra == 'complete'
+  requires_python: '>=3.6'
 - conda: https://conda.anaconda.org/conda-forge/noarch/bokeh-3.7.3-pyhd8ed1ab_0.conda
   sha256: dd116a77a5aca118cfdfcc97553642295a3fb176a4e741fd3d1363ee81cebdfd
   md5: 708d2f99b8a2c833ff164a225a265e76
@@ -6258,9 +6325,9 @@ packages:
   - pkg:pypi/narwhals?source=compressed-mapping
   size: 248742
   timestamp: 1756119139962
-- pypi: git+https://github.com/xraygui/nbs-bl?rev=v0.1.1#6230ed757256dea86ef3c65056083e7460836bc8
+- pypi: git+https://github.com/xraygui/nbs-bl?branch=planStatusUpdates#710875c645c446546bd6bc0a176757f2e6fa5fbd
   name: nbs-bl
-  version: 0.1.1
+  version: 0.1.1.dev3+g710875c64
   requires_dist:
   - bluesky
   - bluesky-queueserver
@@ -6275,6 +6342,17 @@ packages:
   name: nbs-core
   version: 0.0.2
   requires_python: '>=3.7'
+- pypi: git+https://github.com/xraygui/nbs-gui?rev=v0.1.0#0cd384a891008b0f3bbff58d03001b782e8ab73f
+  name: nbs-gui
+  version: 0.1.0
+  requires_dist:
+  - bluesky-widgets
+  - bluesky-queueserver-api
+  - qtpy
+  - ophyd
+  - toml
+  - nbs-core
+  requires_python: '>=3.8'
 - conda: https://conda.anaconda.org/conda-forge/linux-64/ncurses-6.5-h2d0b736_3.conda
   sha256: 3fde293232fa3fca98635e1167de6b7c7fda83caf24b9d6c91ec9eefb4f4d586
   md5: 47e340acb35de30501a76c7c799c41d7
@@ -7782,6 +7860,16 @@ packages:
   purls: []
   size: 53080009
   timestamp: 1753420196625
+- pypi: https://files.pythonhosted.org/packages/69/76/37c0ccd5ab968a6a438f9c623aeecc84c202ab2fabc6a8fd927580c15b5a/QtPy-2.4.3-py3-none-any.whl
+  name: qtpy
+  version: 2.4.3
+  sha256: 72095afe13673e017946cc258b8d5da43314197b741ed2890e563cf384b51aa1
+  requires_dist:
+  - packaging
+  - pytest>=6,!=7.0.0,!=7.0.1 ; extra == 'test'
+  - pytest-cov>=3.0.0 ; extra == 'test'
+  - pytest-qt ; extra == 'test'
+  requires_python: '>=3.7'
 - conda: https://conda.anaconda.org/conda-forge/linux-64/rav1e-0.7.1-h8fae777_3.conda
   sha256: 6e5e704c1c21f820d760e56082b276deaf2b53cf9b751772761c3088a365f6f4
   md5: 2c42649888aac645608191ffdc80d13a
@@ -8440,7 +8528,7 @@ packages:
   - pkg:pypi/sqlalchemy?source=compressed-mapping
   size: 3532535
   timestamp: 1754983880268
-- pypi: git+https://github.com/nsls-ii-sst/sst_base#c8b39aa520ca017007519e934f154d6b508d0208
+- pypi: git+https://github.com/nsls-ii-sst/sst_base?rev=v0.1.0#c8b39aa520ca017007519e934f154d6b508d0208
   name: sst-base
   version: 0.0.2.dev61+gc8b39aa52
   requires_dist:
@@ -8450,6 +8538,25 @@ packages:
   - nbs-core
   - nbs-bl
   requires_python: '>=3.7'
+- pypi: git+https://github.com/nsls-ii-sst/sst-fasstcat#dff762b1ad27df861eb27783471176e3fd762187
+  name: sst-fasstcat
+  version: 0.1.dev3+gdff762b1a
+  requires_dist:
+  - nbs-gui
+  - ophyd
+  - bluesky
+  - qtpy
+  - numpy
+  - scipy
+  requires_python: '>=3.10'
+- pypi: git+https://github.com/nsls-ii-sst/sst_tes?rev=v0.0.1#2fedbe0585da6bfb6bd0730367c68f664886c54a
+  name: sst-tes
+  version: 0.0.1
+  requires_dist:
+  - ophyd
+  - numpy
+  - zmq
+  - event-model
 - conda: https://conda.anaconda.org/conda-forge/noarch/stack_data-0.6.3-pyhd8ed1ab_1.conda
   sha256: 570da295d421661af487f1595045760526964f41471021056e993e73089e9c41
   md5: b1b505328da7a6b246787df4b5a49fbc
@@ -8505,6 +8612,19 @@ packages:
   - pkg:pypi/suitcase-mongo?source=hash-mapping
   size: 26416
   timestamp: 1737651184394
+- pypi: https://files.pythonhosted.org/packages/5d/32/6e723c9fa2847ba268c02377f75a4ae3432ec82fcf1e9776e2b9ca5f18e7/suitcase_utils-0.5.3-py3-none-any.whl
+  name: suitcase-utils
+  version: 0.5.3
+  sha256: c8f645de823a3a56a41c03b6b2b408e8dc949f9b53591c30d826b1129e37be95
+  requires_dist:
+  - bluesky ; extra == 'complete'
+  - caproto ; extra == 'complete'
+  - ophyd ; extra == 'complete'
+  - pytest>=3.9 ; extra == 'complete'
+  - bluesky ; extra == 'test-fixtures'
+  - caproto ; extra == 'test-fixtures'
+  - ophyd ; extra == 'test-fixtures'
+  - pytest>=3.9 ; extra == 'test-fixtures'
 - conda: https://conda.anaconda.org/conda-forge/linux-64/svt-av1-3.1.2-hecca717_0.conda
   sha256: 34e2e9c505cd25dba0a9311eb332381b15147cf599d972322a7c197aedfc8ce2
   md5: 9859766c658e78fec9afa4a54891d920
@@ -8693,6 +8813,11 @@ packages:
   purls: []
   size: 3285204
   timestamp: 1748387766691
+- pypi: https://files.pythonhosted.org/packages/44/6f/7120676b6d73228c96e17f1f794d8ab046fc910d781c8d151120c3f1569e/toml-0.10.2-py2.py3-none-any.whl
+  name: toml
+  version: 0.10.2
+  sha256: 806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b
+  requires_python: '>=2.6,!=3.0.*,!=3.1.*,!=3.2.*'
 - conda: https://conda.anaconda.org/conda-forge/noarch/tomli-2.2.1-pyhe01879c_2.conda
   sha256: 040a5a05c487647c089ad5e05ad5aff5942830db2a4e656f1e300d73436436f1
   md5: 30a0a26c8abccf4b7991d590fe17c699
@@ -8865,6 +8990,14 @@ packages:
   - pkg:pypi/tzlocal?source=hash-mapping
   size: 40960
   timestamp: 1739472100401
+- pypi: git+https://github.com/nsls-ii-sst/ucal?rev=v0.1.0#890602cbe131ee50806f42829333721d2ada3d67
+  name: ucal
+  version: 0.1.0
+  requires_dist:
+  - bluesky
+  - ophyd
+  - sst-base
+  - nbs-bl
 - conda: https://conda.anaconda.org/conda-forge/linux-64/unicodedata2-16.0.0-py312h66e93f0_0.conda
   sha256: 638916105a836973593547ba5cf4891d1f2cb82d1cf14354fcef93fd5b941cdc
   md5: 617f5d608ff8c28ad546e5d9671cbb95
@@ -9513,6 +9646,12 @@ packages:
   purls: []
   size: 110843
   timestamp: 1754587144298
+- pypi: https://files.pythonhosted.org/packages/6e/78/833b2808793c1619835edb1a4e17a023d5d625f4f97ff25ffff986d1f472/zmq-0.0.0.tar.gz
+  name: zmq
+  version: 0.0.0
+  sha256: 6b1a1de53338646e8c8405803cffb659e8eb7bb02fff4c9be62a7acfac8370c9
+  requires_dist:
+  - pyzmq
 - conda: https://conda.anaconda.org/conda-forge/linux-64/zstandard-0.23.0-py312h4c3975b_3.conda
   sha256: 40c76563f3a398f27b4036e468881a1f909a8c66d100a16a28c1379a0940a59c
   md5: 7a2c6e25a4fabf9fab62ee1977beabe5

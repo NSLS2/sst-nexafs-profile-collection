@@ -34,9 +34,13 @@ bluesky-tiled-plugins = ">=2.0.0b67"
 
 [feature.profile.pypi-dependencies]
 ophyd-async = { version = ">=0.9.0, <0.10", extras = ["ca", "pva"] }
-nbs-bl = { git = "https://github.com/xraygui/nbs-bl", rev = "v0.1.1" }
-sst-base = { git = "https://github.com/nsls-ii-sst/sst_base" }
+nbs-bl = { git = "https://github.com/xraygui/nbs-bl", branch = "planStatusUpdates" }
+sst-base = { git = "https://github.com/nsls-ii-sst/sst_base", rev = "v0.1.0" }
+sst_tes = { git = "https://github.com/nsls-ii-sst/sst_tes", rev = "v0.0.1" }
 nbs-core = { git = "https://github.com/xraygui/nbs-core", rev = "v0.0.2" }
+nbs-gui = { git = "https://github.com/xraygui/nbs-gui", rev = "v0.1.0" }
+sst-fasstcat = { git = "https://github.com/nsls-ii-sst/sst-fasstcat" }
+ucal = { git = "https://github.com/nsls-ii-sst/ucal", rev = "v0.1.0" }
 
 
 [feature.qs.dependencies]
