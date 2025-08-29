@@ -27,10 +27,16 @@ ply = ">=3.11,<4"
 colorlog = ">=6.9.0,<7"
 epicscorelibs = "*"
 pydantic-numpy = "*"
+ipython = ">=9.5.0,<10"
+databroker = ">=2.0.0b67"
+bluesky-tiled-plugins = ">=2.0.0b67"
 
 
 [feature.profile.pypi-dependencies]
 ophyd-async = { version = ">=0.9.0, <0.10", extras = ["ca", "pva"] }
+nbs-bl = { git = "https://github.com/xraygui/nbs-bl", rev = "v0.1.1" }
+sst-base = { git = "https://github.com/nsls-ii-sst/sst_base" }
+nbs-core = { git = "https://github.com/xraygui/nbs-core", rev = "v0.0.2" }
 
 
 [feature.qs.dependencies]
