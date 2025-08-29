@@ -47,24 +47,31 @@ ucal = { git = "https://github.com/nsls-ii-sst/ucal", rev = "v0.1.0" }
 bluesky-queueserver = "*"
 bluesky-httpserver = "*"
 
+[feature.gui.dependencies]
+pyqt = "*"
+qtconsole = "*"
+qt-wayland = ">=5.15.15,<6"
+
 [feature.qs.tasks]
 # This section needs some development work to understand the best way to
 # thread the required configuration through both the task and files checked into
 # the profile.  These will interact with the ansible roles for pushing out the
 # systemd units
-qs-backend = "start-re-manager --profile-dir=."
+qs-backend = "start-re-manager --redis-addr redis:6379 --zmq-publish-console ON --use-ipython-kernel ON --ipython-kernel-ip auto --startup-profile collection"
 qs-server = "uvicorn --host localhost --port 60610 bluesky_httpserver.server:app"
-
-
-[feature.terminal.dependencies]
-ipython = "*"
-pyside6 = "*"
-
 
 [feature.terminal.tasks]
 start = "ipython --profile-dir=."
 pvs = "ipython --profile-dir=. -c 'get_pv_types(); exit()'"
 
+[feature.gui.tasks]
+nbs-gui = "nbs-gui --profile collection"
+nbs-viewer = "nbs-viewer"
+
+[feature.gui.pypi-dependencies]
+nbs-viewer = ">=0.3.0, <0.4"
+
 [environments]
 terminal = {features=["profile", "terminal"], solve-group="profile"}
 qs = {features=["profile", "qs"], solve-group="profile"}
+gui = {features=["profile", "gui"], solve-group="profile"}
