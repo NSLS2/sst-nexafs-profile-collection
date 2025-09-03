@@ -32,6 +32,10 @@ databroker = ">=2.0.0b67"
 bluesky-tiled-plugins = ">=2.0.0b67"
 hdf5-external-filter-plugins = ">=0.1.0,<0.2"
 blosc-hdf5-plugin = ">=1.0.1,<2"
+asteval = ">=1.0.6,<2"
+bluesky-widgets = ">=0.0.17,<0.0.18"
+bluesky-live = ">=0.0.8,<0.0.9"
+
 
 
 [feature.profile.pypi-dependencies]
