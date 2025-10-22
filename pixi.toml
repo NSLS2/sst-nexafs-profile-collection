@@ -65,7 +65,7 @@ qs-backend = "start-re-manager --redis-addr redis:6379 --zmq-publish-console ON 
 qs-server = "uvicorn --host localhost --port 60610 bluesky_httpserver.server:app"
 
 [feature.terminal.tasks]
-start = "ipython --profile-dir=."
+start = "unset SESSION_MANAGER && MPLBACKEND=qtagg ipython --profile-dir=."
 pvs = "ipython --profile-dir=. -c 'get_pv_types(); exit()'"
 
 [feature.terminal.dependencies]
