@@ -45,6 +45,7 @@ nbs-core = { git = "https://github.com/xraygui/nbs-core", rev = "v0.0.2" }
 nbs-gui = { git = "https://github.com/xraygui/nbs-gui", rev = "v0.1.0" }
 sst-fasstcat = { git = "https://github.com/nsls-ii-sst/sst-fasstcat" }
 ucal = { git = "https://github.com/nsls-ii-sst/ucal", rev = "v0.1.0" }
+pvxslibs = ">=1.3.2, <2"
 
 
 [feature.qs.dependencies]
