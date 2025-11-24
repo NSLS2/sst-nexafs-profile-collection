@@ -5,7 +5,7 @@ header = "sst-gui-header"
 include = ["nbs-gui-queue", "nbs-gui-monitor", "nbs-gui-console", "kafka-table-tab", "ucal-tes-tab", "sst-gui-samples"]
 
 [gui.plans]
-include = ["nbs-gui-scan", "nbs-gui-move", "nbs-gui-xas", "nbs-gui-timescan", "nbs-gui-varscan", "nbs-gui-flyscan", "ucal-tes-cal", "ucal-tes-setup", "nbs-gui-samplemove"]
+include = ["nbs-gui-scan", "nbs-gui-move", "nbs-gui-xas", "nbs-gui-timescan", "nbs-gui-varscan", "nbs-gui-flyscan", "sst-gui-energy-flyscan", "ucal-tes-cal", "ucal-tes-setup", "nbs-gui-samplemove"]
 
 
 [models.beamline]
@@ -25,16 +25,20 @@ pey = { label = "PEY" }
 i0 = { label = "I0" }
 i1 = { label = "I1" }
 iref_slit_diode = { label = "Iref Slit" }
-dm8_diode = { label = "DM8 Diode" }
-dm7_diode = { label = "DM7 Diode" }
+dm8_diode = { visible=false, label = "DM8 Diode" }
+dm7_diode = { visible=false, label = "DM7 Diode" }
 m4cd = { label = "M4CD" }
-ucal_sc = { label = "UCAL I0" }
+ucal_sc = { label = "UCAL I0", visible = false }
+ucal_i0 = { visible = false }
+dm6_diode = {visible = false}
 
 [loaders]
 NewEnPos = "sst_base.qt.models.energy.SST1EnergyModel"
 EnPosFactory = "sst_base.qt.models.energy.SST1EnergyModel"
 ManipulatorBuilderNEXAFS = "nbs_gui.models.PseudoPositionerModel"
 MultiMeshBuilder = "nbs_gui.models.PseudoPositionerModel"
+PrettyMotorFMBODeadband = "nbs_gui.models.MotorModel"
+PrettyMotorFMBODeadbandFlyer = "nbs_gui.models.MotorModel"
 PrettyMotorFMBO = "nbs_gui.models.MotorModel"
 PrettyMotor = "nbs_gui.models.MotorModel"
 EpicsSignalRO = "nbs_gui.models.PVModelRO"
@@ -45,6 +49,10 @@ ADCBuffer = "nbs_gui.models.ScalarModel"
 FMBHexapodMirror = "nbs_gui.models.MotorTupleModel"
 TESMCAFactory = "ucal.qt.models.tesModel.TESModel"
 WienerPSFactory = "nbs_gui.models.MotorTupleModel"
+SRSADCFactory = "sst_base.qt.models.srs570.SRS570Model"
+RBDFactory = "sst_base.qt.models.rbd9103.RBD9103Model"
+QuadSlits = "sst_base.qt.models.quadSlits.QuadSlitsModel"
+FMBOQuadSlits = "sst_base.qt.models.quadSlits.QuadSlitsModel"
 
 
 [kafka]

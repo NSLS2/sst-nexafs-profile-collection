@@ -4,45 +4,58 @@ prefix = "XF:07ID-ES{UCAL:ADR}"
 name = "adr"
 
 [sc]
-_target = "sst_base.detectors.ADCBuffer"
+_target = "sst_base.srs570.SRSADCFactory"
 _group = "detectors"
 prefix = "XF:07ID-BI[ADC:1-Ch:4]"
+srs_prefix = "XF:07ID-ES{SR570:02}SR1:"
 name = "nexafs_sc"
 rescale = -1
-gain = 1e-9
-
+#gain = 1e-9
 
 [ref]
-_target = "sst_base.detectors.ADCBuffer"
+_target = "sst_base.srs570.SRSADCFactory"
 _group = "detectors"
 prefix = "XF:07ID-BI[ADC:1-Ch:5]"
+srs_prefix = "XF:07ID-ES{SR570:09}SR1:"
 name = "nexafs_ref"
 rescale = -1
-gain = 1e-9
+#gain = 1e-9
 
 [pey]
-_target = "sst_base.detectors.ADCBuffer"
+_target = "sst_base.srs570.SRSADCFactory"
 _group = "detectors"
 prefix = "XF:07ID-BI[ADC:1-Ch:6]"
+srs_prefix = "XF:07ID-ES{SR570:01}SR1:"
 name = "nexafs_pey"
-gain = 1e-8
+#gain = 1e-8
 
 
 [i0]
-_target = "sst_base.detectors.ADCBuffer"
+_target = "sst_base.srs570.SRSADCFactory"
 _group = "detectors"
 prefix = "XF:07ID-BI[ADC:1-Ch:7]"
+srs_prefix = "XF:07ID-ES{SR570:05}SR1:"
 name = "nexafs_i0up"
 rescale = -1
-gain = 1e-9
+#gain = 1e-9
 
 [ucal_sc]
-_target = "sst_base.detectors.ADCBuffer"
+_target = "sst_base.srs570.SRSADCFactory"
 _group = "detectors"
 prefix = "XF:07ID-BI[ADC:2-Ch:1]"
+srs_prefix = "XF:07ID-ES{SR570:07}SR1:"
+name = "ucal_sc"
+rescale = -1
+#gain = 1e-9
+
+[ucal_i0]
+_target = "sst_base.srs570.SRSADCFactory"
+_group = "detectors"
+prefix = "XF:07ID-BI[ADC:3-Ch:0]"
+srs_prefix = "XF:07ID-ES{SR570:08}SR1:"
 name = "ucal_i0"
 rescale = -1
-gain = 1e-9
+#gain = 1e-9
 
 [i1]
 _target = "sst_base.detectors.ADCBuffer"
@@ -53,11 +66,12 @@ rescale = -1
 gain = 1e-6
 
 [m4cd]
-_target = "sst_base.detectors.ADCBuffer"
+_target = "sst_base.srs570.SRSADCFactory"
 _group = "detectors"
 prefix = "XF:07ID-BI[ADC:2-Ch:4]"
+srs_prefix = "XF:07ID-ES{SR570:11}SR1:"
 name = "m4cd"
-gain = 1e-6
+#gain = 1e-6
 
 [iref_slit_diode]
 _target = "sst_base.detectors.ADCBuffer"
@@ -66,19 +80,46 @@ prefix = "XF:07ID-BI[ADC:2-Ch:5]"
 name = "iref_slit_diode"
 gain = 1e-6
 
+[i0_slit_diode_ib]
+_target = "sst_base.srs570.SRSADCFactory"
+_group = "detectors"
+prefix = "XF:07ID-BI[ADC:2-Ch:0]"
+srs_prefix = "XF:07ID-ES{SR570:03}SR1:"
+name = "i0_slit_diode_ib"
+#gain = 1e-7
+
+[i0_slit_diode_ob]
+_target = "sst_base.srs570.SRSADCFactory"
+_group = "detectors"
+prefix = "XF:07ID-BI[ADC:2-Ch:2]"
+srs_prefix = "XF:07ID-ES{SR570:04}SR1:"
+name = "i0_slit_diode_ob"
+#gain = 1e-7
+
+
 [dm8_diode]
-_target = "sst_base.detectors.ADCBuffer"
+_target = "sst_base.srs570.SRSADCFactory"
 _group = "detectors"
 prefix = "XF:07ID-BI[ADC:2-Ch:6]"
+srs_prefix = "XF:07ID-ES{SR570:06}SR1:"
 name = "dm8_diode"
 rescale = -1
 gain = 1e-6
 
 [dm7_diode]
-_target = "sst_base.detectors.ADCBuffer"
+_target = "sst_base.srs570.SRSADCFactory"
 _group = "detectors"
 prefix = "XF:07ID-BI[ADC:2-Ch:7]"
+srs_prefix = "XF:07ID-ES{SR570:10}SR1:"
 name = "dm7_diode"
+#rescale = -1
+#gain = 1e-6
+
+[dm6_diode]
+_target = "sst_base.detectors.ADCBuffer"
+_group = "detectors"
+prefix = "XF:07ID-BI[ADC:3-Ch:7]"
+name = "dm6_diode"
 rescale = -1
 gain = 1e-6
 
