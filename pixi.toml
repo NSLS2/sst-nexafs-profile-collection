@@ -78,7 +78,7 @@ qs = "scripts/qs-start.sh"
 qs-dev = "scripts/qs-dev.sh"
 
 [feature.terminal.tasks]
-start = "unset SESSION_MANAGER && MPLBACKEND=qtagg ipython --profile-dir=."
+start = "unset SESSION_MANAGER PYTHONPATH && MPLBACKEND=qtagg ipython --profile-dir=."
 pvs = "ipython --profile-dir=. -c 'get_pv_types(); exit()'"
 
 [feature.terminal.dependencies]
