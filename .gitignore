@@ -80,3 +80,8 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
+# pixi environments
+.pixi/*
+!.pixi/config.toml
+
+history.sqlite
