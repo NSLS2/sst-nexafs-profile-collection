@@ -65,13 +65,23 @@ name = "nexafs_i1"
 rescale = -1
 gain = 1e-6
 
-[m4cd]
+[m4c]
 _target = "sst_base.srs570.SRSADCFactory"
 _group = "detectors"
 prefix = "XF:07ID-BI[ADC:2-Ch:4]"
 srs_prefix = "XF:07ID-ES{SR570:11}SR1:"
-name = "m4cd"
+name = "m4c"
 #gain = 1e-6
+
+[m4d]
+_target = "sst_base.detectors.ADCBuffer"
+#_target = "sst_base.srs570.SRSADCFactory"
+_group = "detectors"
+prefix = "XF:07ID-BI[ADC:3-Ch:6]"
+#prefix = "XF:07ID-BI[ADC:3-Ch:1]"
+#srs_prefix = "XF:07ID-ES{SR570:12}SR1:"
+name = "m4d"
+gain = 1e-8
 
 [iref_slit_diode]
 _target = "sst_base.detectors.ADCBuffer"
@@ -167,6 +177,7 @@ name = "capacitor_box"
 _target = "sst_base.motors.PrettyMotor"
 prefix = "XF:07ID2-BI{Diag:07-Ax:Y}Mtr"
 name = "DM7Motor"
+_group = "motors"
 
 [dm7_cam]
 _target = "sst_base.cameras.StandardProsilicawstatsFactory" 

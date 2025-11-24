@@ -5,7 +5,7 @@ header = "sst-gui-header"
 include = ["nbs-gui-queue", "nbs-gui-monitor", "nbs-gui-console", "kafka-table-tab", "ucal-tes-tab", "sst-gui-samples"]
 
 [gui.plans]
-include = ["nbs-gui-scan", "nbs-gui-move", "nbs-gui-xas", "nbs-gui-timescan", "nbs-gui-varscan", "nbs-gui-flyscan", "sst-gui-energy-flyscan", "ucal-tes-cal", "ucal-tes-setup", "nbs-gui-samplemove"]
+include = ["nbs-gui-scan", "nbs-gui-move", "nbs-gui-xas", "nbs-gui-timescan", "nbs-gui-varscan", "nbs-gui-flyscan",  "ucal-tes-cal", "ucal-tes-setup", "nbs-gui-samplemove"]#, "sst-gui-energy-flyscan"]
 
 
 [models.beamline]

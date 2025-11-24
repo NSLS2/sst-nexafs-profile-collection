@@ -30,7 +30,7 @@ beamline = "sst1"
 
 
 [settings.plans]
-xas = ["regions.toml"]
+xas = ["regions.toml", "/home/xf07id1/Public/regions.toml"]
 
 [settings.redis.md]
 host = "info.sst.nsls2.bnl.gov"
