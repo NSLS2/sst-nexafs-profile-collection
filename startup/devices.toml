@@ -4,7 +4,7 @@ prefix = "XF:07ID-ES{UCAL:ADR}"
 name = "adr"
 
 [sc]
-_target = "sst_base.srs570.SRSADCFactory"
+_target = "sst_base.devices.SRSADCFactory"
 _group = "detectors"
 prefix = "XF:07ID-BI[ADC:1-Ch:4]"
 srs_prefix = "XF:07ID-ES{SR570:02}SR1:"
@@ -13,7 +13,7 @@ rescale = -1
 #gain = 1e-9
 
 [ref]
-_target = "sst_base.srs570.SRSADCFactory"
+_target = "sst_base.devices.SRSADCFactory"
 _group = "detectors"
 prefix = "XF:07ID-BI[ADC:1-Ch:5]"
 srs_prefix = "XF:07ID-ES{SR570:09}SR1:"
@@ -22,7 +22,7 @@ rescale = -1
 #gain = 1e-9
 
 [pey]
-_target = "sst_base.srs570.SRSADCFactory"
+_target = "sst_base.devices.SRSADCFactory"
 _group = "detectors"
 prefix = "XF:07ID-BI[ADC:1-Ch:6]"
 srs_prefix = "XF:07ID-ES{SR570:01}SR1:"
@@ -31,7 +31,7 @@ name = "nexafs_pey"
 
 
 [i0]
-_target = "sst_base.srs570.SRSADCFactory"
+_target = "sst_base.devices.SRSADCFactory"
 _group = "detectors"
 prefix = "XF:07ID-BI[ADC:1-Ch:7]"
 srs_prefix = "XF:07ID-ES{SR570:05}SR1:"
@@ -40,7 +40,7 @@ rescale = -1
 #gain = 1e-9
 
 [ucal_sc]
-_target = "sst_base.srs570.SRSADCFactory"
+_target = "sst_base.devices.SRSADCFactory"
 _group = "detectors"
 prefix = "XF:07ID-BI[ADC:2-Ch:1]"
 srs_prefix = "XF:07ID-ES{SR570:07}SR1:"
@@ -49,7 +49,7 @@ rescale = -1
 #gain = 1e-9
 
 [ucal_i0]
-_target = "sst_base.srs570.SRSADCFactory"
+_target = "sst_base.devices.SRSADCFactory"
 _group = "detectors"
 prefix = "XF:07ID-BI[ADC:3-Ch:0]"
 srs_prefix = "XF:07ID-ES{SR570:08}SR1:"
@@ -66,7 +66,7 @@ rescale = -1
 gain = 1e-6
 
 [m4c]
-_target = "sst_base.srs570.SRSADCFactory"
+_target = "sst_base.devices.SRSADCFactory"
 _group = "detectors"
 prefix = "XF:07ID-BI[ADC:2-Ch:4]"
 srs_prefix = "XF:07ID-ES{SR570:11}SR1:"
@@ -91,7 +91,7 @@ name = "iref_slit_diode"
 gain = 1e-6
 
 [i0_slit_diode_ib]
-_target = "sst_base.srs570.SRSADCFactory"
+_target = "sst_base.devices.SRSADCFactory"
 _group = "detectors"
 prefix = "XF:07ID-BI[ADC:2-Ch:0]"
 srs_prefix = "XF:07ID-ES{SR570:03}SR1:"
@@ -99,7 +99,7 @@ name = "i0_slit_diode_ib"
 #gain = 1e-7
 
 [i0_slit_diode_ob]
-_target = "sst_base.srs570.SRSADCFactory"
+_target = "sst_base.devices.SRSADCFactory"
 _group = "detectors"
 prefix = "XF:07ID-BI[ADC:2-Ch:2]"
 srs_prefix = "XF:07ID-ES{SR570:04}SR1:"
@@ -108,7 +108,7 @@ name = "i0_slit_diode_ob"
 
 
 [dm8_diode]
-_target = "sst_base.srs570.SRSADCFactory"
+_target = "sst_base.devices.SRSADCFactory"
 _group = "detectors"
 prefix = "XF:07ID-BI[ADC:2-Ch:6]"
 srs_prefix = "XF:07ID-ES{SR570:06}SR1:"
@@ -117,7 +117,7 @@ rescale = -1
 gain = 1e-6
 
 [dm7_diode]
-_target = "sst_base.srs570.SRSADCFactory"
+_target = "sst_base.devices.SRSADCFactory"
 _group = "detectors"
 prefix = "XF:07ID-BI[ADC:2-Ch:7]"
 srs_prefix = "XF:07ID-ES{SR570:10}SR1:"
@@ -134,7 +134,7 @@ rescale = -1
 gain = 1e-6
 
 [wps1]
-_target = "sst_base.wienerPS.WienerPSFactory"
+_target = "sst_base.devices.WienerPSFactory"
 prefix = "XF:07ID-ES{WPS:01"
 name = "wps1"
 _group = ["motors"]
@@ -251,11 +251,12 @@ prefix = "XF:07IDB-CT{DIODE-Local:1}OutPt05:Data-Sel"
 name = "RSoXS Light Toggle"
 
 [en]
-_target = "sst_base.energy.EnPosFactory"
+_target = "sst_base.energy.EnergySoftFactory"
 _group = "source"
 _load_order = 2
 prefix = ""
 name = "en"
+_baseline = true
 
 [gv14]
 prefix = "XF:07IDA-VA:2{FS:6-GV:1}"
@@ -418,7 +419,7 @@ prefix = "XF:07ID2-OP{Mir:M5C"
 name = "SST 1 Mirror 5 fmb"
 
 [Exit_Slit]
-_target = "sst_base.motors.PrettyMotorFMBO"
+_target = "sst_base.motors.PrettyMotor"
 _group = ["motors", "apertures"]
 _role = "slits"
 kind = "hinted"

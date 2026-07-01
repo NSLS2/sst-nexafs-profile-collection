@@ -11,10 +11,12 @@
 "EPS_Shutter" = "nbs_sim.devices.shutters.SSTShutter"
 "MultiMeshBuilder" = "nbs_sim.devices.manipulator.MultiMesh"
 "ManipulatorBuilder" = "nbs_sim.devices.manipulator.Manipulator"
+"ManipulatorBuilderNEXAFS" = "nbs_sim.devices.manipulator.ManipulatorNEXAFS"
 "EnergySoftFactory" = "nbs_sim.devices.energy.SST1Energy"
 "QuadSlits" = "nbs_sim.devices.slits.QuadSlits"
 "QuadSlitsLimitFactory" = "nbs_sim.devices.slits.QuadSlitsLimitFactory"
 "SRSADCFactory" = "nbs_sim.devices.srs570.SRSADCFactory"
+"FMBHexapodMirror" = "nbs_sim.devices.mirrors.FMBHexapodMirror"
 "EpicsSignalRO" = "nbs_sim.devices.signals.ConstantSignal"
 "EpicsSignal" = "nbs_sim.devices.signals.ConstantSignal"
 "pid" = "nbs_sim.devices.pid.PIDGroup"
@@ -23,6 +25,8 @@
 
 [devices]
 ring_current = {_target = "nbs_sim.devices.signals.RingCurrent"}
+en = { _role = "energy", _load_order=1 }
 beamselection = {_target = "nbs_sim.devices.signals.ModeControl"}
 beamon = {_target = "nbs_sim.devices.signals.ConstantSignal", value = 1}
 softbeamenable = {_target = "nbs_sim.devices.signals.EndstationControl", value = "NEXAFS"}
+Exit_Slit = { _target = "nbs_sim.devices.slits.Slit", trans_min = 0, trans_max = 0.1, user_limits=[0, 0.5]}
