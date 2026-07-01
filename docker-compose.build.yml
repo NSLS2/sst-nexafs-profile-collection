@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+  bluesky:
+    build:
+      context: .
+      dockerfile: images/bluesky/Containerfile
+      args:
+        BASE_IMAGE: ghcr.io/xraygui/nbs-pods/bluesky:latest
+    image: nexafs-bluesky:latest
+
+  queueserver:
+    build:
+      context: .
+      dockerfile: images/queueserver/Containerfile
+      args:
+        BASE_IMAGE: nexafs-bluesky:latest
+    image: nexafs-queueserver:latest
+    depends_on:
+      - bluesky
+
+  gui:
+    build:
+      context: .
+      dockerfile: images/gui/Containerfile
+      args:
+        BASE_IMAGE: nexafs-bluesky:latest
+    image: nexafs-gui:latest
+    depends_on:
+      - bluesky
+
+  sim:
+    build:
+      context: .
+      dockerfile: images/sim/Containerfile
+      args:
+        BASE_IMAGE: nexafs-bluesky:latest
+    image: nexafs-sim:latest
+    depends_on:
+      - bluesky
+
+  microcal-daq:
+    build:
+      context: .
+      dockerfile: images/microcal-daq/Containerfile
+    image: nexafs-microcal-daq:latest

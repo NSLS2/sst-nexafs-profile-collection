@@ -1,0 +1,19 @@
+version: '3'
+networks:
+  bluesky-services_bluesky:
+    external: true
+services:
+  dcom:
+    image: ${NBS_IMAGE_REG:-ghcr.io/xraygui/nbs-pods/}microcal-daq
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - /tmp/.dastard:/root/.dastard
+      - /tmp/data:/data
+    environment:
+      - DISPLAY=${DISPLAY}
+      - QT_QPA_PLATFORM=xcb
+    command: bash -c "source /root/daq/bin/activate; dcom"
+    networks:
+      - bluesky-services_bluesky
+    cap-add:
+      - SYS_PTRACE

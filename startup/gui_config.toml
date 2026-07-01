@@ -33,8 +33,7 @@ ucal_i0 = { visible = false }
 dm6_diode = {visible = false}
 
 [loaders]
-NewEnPos = "sst_base.qt.models.energy.SST1EnergyModel"
-EnPosFactory = "sst_base.qt.models.energy.SST1EnergyModel"
+EnergySoftFactory = "sst_base.qt.models.energy.SST1EnergyModel"
 ManipulatorBuilderNEXAFS = "nbs_gui.models.PseudoPositionerModel"
 MultiMeshBuilder = "nbs_gui.models.PseudoPositionerModel"
 PrettyMotorFMBODeadband = "nbs_gui.models.MotorModel"

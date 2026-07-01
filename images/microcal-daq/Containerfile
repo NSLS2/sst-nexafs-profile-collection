@@ -1,0 +1,34 @@
+FROM ubuntu:24.04
+
+RUN apt-get update && apt-get install -y \
+    ca-certificates \
+    curl \
+    gcc \
+    g++ \
+    git \
+    jq \
+    less \
+    make \
+    ssh \
+    vim \
+    wget
+
+RUN curl -LsSf https://astral.sh/uv/install.sh | sh
+ENV PATH="/root/.local/bin:$PATH"
+RUN uv python install 3.12
+RUN uv python update-shell
+WORKDIR $HOME
+ENV GITREPOS=/root/caldaq
+RUN mkdir -p $GITREPOS
+WORKDIR $GITREPOS
+RUN git clone https://github.com/usnistgov/microcal-daq.git
+RUN git clone -b bahama_hostname https://github.com/cjtitus/dastard.git
+RUN git clone https://github.com/usnistgov/dastardcommander.git dastard-commander
+RUN git clone https://github.com/usnistgov/mass.git
+RUN git clone https://github.com/usnistgov/mass2.git
+RUN git clone https://github.com/usnistgov/microscope.git
+RUN bash -c "chmod +x microcal-daq/caldaq/prerequisites.sh; microcal-daq/caldaq/prerequisites.sh"
+RUN bash -c "cd; uv venv daq;"
+RUN bash -c "source /root/daq/bin/activate; cd microcal-daq; uv pip install -e ."
+RUN bash -c "source /root/daq/bin/activate; caldaq install dastard dastard-commander microscope mass mass2"
+RUN apt-get install -y qtwayland5

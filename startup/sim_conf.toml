@@ -1,0 +1,28 @@
+[loaders]
+"PrettyMotor" = "nbs_sim.devices.motors.FakeMotor"
+"EpicsMotor" = "nbs_sim.devices.motors.FakeMotor"
+"DeadbandEpicsMotor" = "nbs_sim.devices.motors.FakeMotor"
+"PrettyMotorFMBO" = "nbs_sim.devices.motors.FakeFMBOMotor"
+"PrettyMotorFMBODeadband" = "nbs_sim.devices.motors.FakeFMBOMotor"
+"PrettyMotorFMBODeadbandFlyer" = "nbs_sim.devices.motors.FakeFMBOMotor"
+"FlyableMotor" = "nbs_sim.devices.motors.FakeMotor"
+"ADCBuffer" = "nbs_sim.devices.detectors.ADCVoltage"
+"ophScalar" = "nbs_sim.devices.detectors.GenericDetector"
+"EPS_Shutter" = "nbs_sim.devices.shutters.SSTShutter"
+"MultiMeshBuilder" = "nbs_sim.devices.manipulator.MultiMesh"
+"ManipulatorBuilder" = "nbs_sim.devices.manipulator.Manipulator"
+"EnergySoftFactory" = "nbs_sim.devices.energy.SST1Energy"
+"QuadSlits" = "nbs_sim.devices.slits.QuadSlits"
+"QuadSlitsLimitFactory" = "nbs_sim.devices.slits.QuadSlitsLimitFactory"
+"SRSADCFactory" = "nbs_sim.devices.srs570.SRSADCFactory"
+"EpicsSignalRO" = "nbs_sim.devices.signals.ConstantSignal"
+"EpicsSignal" = "nbs_sim.devices.signals.ConstantSignal"
+"pid" = "nbs_sim.devices.pid.PIDGroup"
+"SMU" = "nbs_sim.devices.k2600b.K2600B"
+"RBDFactory" = "nbs_sim.devices.rbd9103.RBD9103"
+
+[devices]
+ring_current = {_target = "nbs_sim.devices.signals.RingCurrent"}
+beamselection = {_target = "nbs_sim.devices.signals.ModeControl"}
+beamon = {_target = "nbs_sim.devices.signals.ConstantSignal", value = 1}
+softbeamenable = {_target = "nbs_sim.devices.signals.EndstationControl", value = "NEXAFS"}

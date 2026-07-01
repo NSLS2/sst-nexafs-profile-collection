@@ -1,0 +1,7 @@
+[presets]
+demo = ["bluesky-services", "sim", "gui", "queueserver"]
+develop = ["bluesky-services", "--dev", "sim", "gui", "queueserver"]
+test = ["bluesky-services", "sim", "--test", "queueserver"]
+
+[bluesky-services]
+variants = ["mongo"]

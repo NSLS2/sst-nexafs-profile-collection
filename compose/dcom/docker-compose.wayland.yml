@@ -1,0 +1,23 @@
+version: '3'
+networks:
+  bluesky-services_bluesky:
+    external: true
+services:
+  dcom:
+    image: ${NBS_IMAGE_REG:-ghcr.io/xraygui/nbs-pods/}microcal-daq
+    volumes:
+      - /run/user/${HOST_UID}:/run/user/${HOST_UID}
+      - /tmp/.dastard:/root/.dastard
+      - /tmp/data:/data
+    devices:
+      - /dev/dri:/dev/dri
+      - /dev/video0:/dev/video0
+    environment:
+      - WAYLAND_DISPLAY=${WAYLAND_DISPLAY}
+      - QT_QPA_PLATFORM=wayland
+      - XDG_RUNTIME_DIR=/run/user/${HOST_UID}
+    command: bash -c "source /root/daq/bin/activate; dcom"
+    networks:
+      - bluesky-services_bluesky
+    cap-add:
+      - SYS_PTRACE

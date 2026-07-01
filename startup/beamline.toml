@@ -24,7 +24,7 @@ normalization = "i0"
 reference = "ref"
 
 [settings]
-modules = ["ucal.startup"]
+startup_modules = ["nbs_bl.startup", "ucal.startup"]
 tes_processing = "/nsls2/data/sst/shared/config/ucal/processing_status"
 beamline = "sst1"
 
@@ -33,11 +33,23 @@ beamline = "sst1"
 xas = ["regions.toml", "/home/xf07id1/Public/regions.toml"]
 
 [settings.redis.md]
-host = "info.sst.nsls2.bnl.gov"
-prefix = "nexafs-"
+host = "xf07id1-nexafs-redis1.nsls2.bnl.gov"
+port=6380
+ssl=true
+
 
 [settings.redis.info]
-host = "info.sst.nsls2.bnl.gov"
-prefix = "nexafs-"
-port = 60737
-db = 4
+host = "xf07id1-nexafs-redis1.nsls2.bnl.gov"
+port=6380
+ssl=true
+db=1
+
+[settings.tiled_writer]
+enabled = true
+profile = "nsls2"
+api_key_env = "TILED_BLUESKY_WRITING_API_KEY_NEXAFS"
+catalog_path = ["ucal", "raw"]
+subscribe_method = "post_document"
+
+[settings.kafka]
+name = "nexafs"
