@@ -1,5 +1,6 @@
 [adr]
 _target = "sst_tes.adr.EPICS_ADR"
+_defer_loading = true
 prefix = "XF:07ID-ES{UCAL:ADR}"
 name = "adr"
 
@@ -42,6 +43,7 @@ rescale = -1
 [ucal_sc]
 _target = "sst_base.devices.SRSADCFactory"
 _group = "detectors"
+_defer_loading = true
 prefix = "XF:07ID-BI[ADC:2-Ch:1]"
 srs_prefix = "XF:07ID-ES{SR570:07}SR1:"
 name = "ucal_sc"
@@ -51,6 +53,7 @@ rescale = -1
 [ucal_i0]
 _target = "sst_base.devices.SRSADCFactory"
 _group = "detectors"
+_defer_loading = true
 prefix = "XF:07ID-BI[ADC:3-Ch:0]"
 srs_prefix = "XF:07ID-ES{SR570:08}SR1:"
 name = "ucal_i0"
@@ -68,6 +71,7 @@ gain = 1e-6
 [m4c]
 _target = "sst_base.devices.SRSADCFactory"
 _group = "detectors"
+_defer_loading = true
 prefix = "XF:07ID-BI[ADC:2-Ch:4]"
 srs_prefix = "XF:07ID-ES{SR570:11}SR1:"
 name = "m4c"
@@ -86,6 +90,7 @@ gain = 1e-8
 [iref_slit_diode]
 _target = "sst_base.detectors.ADCBuffer"
 _group = "detectors"
+_defer_loading = true
 prefix = "XF:07ID-BI[ADC:2-Ch:5]"
 name = "iref_slit_diode"
 gain = 1e-6
@@ -119,6 +124,7 @@ gain = 1e-6
 [dm7_diode]
 _target = "sst_base.devices.SRSADCFactory"
 _group = "detectors"
+_defer_loading = true
 prefix = "XF:07ID-BI[ADC:2-Ch:7]"
 srs_prefix = "XF:07ID-ES{SR570:10}SR1:"
 name = "dm7_diode"
@@ -128,6 +134,7 @@ name = "dm7_diode"
 [dm6_diode]
 _target = "sst_base.detectors.ADCBuffer"
 _group = "detectors"
+_defer_loading = true
 prefix = "XF:07ID-BI[ADC:3-Ch:7]"
 name = "dm6_diode"
 rescale = -1
@@ -137,6 +144,7 @@ gain = 1e-6
 _target = "sst_base.devices.WienerPSFactory"
 prefix = "XF:07ID-ES{WPS:01"
 name = "wps1"
+_defer_loading = true
 _group = ["motors"]
 lvch0 = "PEY-Grid"
 lvch1 = "DuoA-Grid"
@@ -154,6 +162,7 @@ hvch7 = "LAR1-Phos"
 [tes]
 _target = "sst_tes.mca_tes.TESMCAFactory"
 _group = "detectors"
+_modes = ["tes"]
 prefix = "XF:07ID-ES{UCAL}:"
 mcaPrefix = "XF:07ID-ES{UCAL:ROIS}:"
 name = "tes"
@@ -165,6 +174,7 @@ port = 4000
 [scalar]
 _target = "sst_base.detectors.pxicounter.PXIScalar"
 _group = "detectors"
+_defer_loading = true
 prefix = "XF:07ID-BI[Counter:1-"
 name = "pxi_scalar"
 
@@ -437,6 +447,7 @@ name = "i0upAu"
 [tesz]
 _target = "sst_base.motors.PrettyMotor"
 _group = "motors"
+_modes = ["tes"]
 kind = "hinted"
 prefix = "XF:07ID1-BI{UCAL-Ax:DetX}Mtr"
 name = "tesz"
@@ -587,3 +598,10 @@ _alias = "Exit_Slit"
 _alias = "multimesh.x"
 _group = "motors"
 
+[beamline_mode]
+_target = "nbs_bl.redisDevice.RedisModeDevice"
+_group = "signals"
+_role = "mode"
+_baseline = true
+name = "NEXAFS Mode"
+prefix = "mode"

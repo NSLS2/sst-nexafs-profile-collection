@@ -1,0 +1,18 @@
+[tes]
+__merge__ = "replace"
+_target = "sst_base.detectors.mca.EpicsMCABase"
+_group = "detectors"
+prefix = "XF:07ID-ES{UCAL:ROIS}:"
+name = "tes"
+
+[i0]
+rescale = 1
+
+[sc]
+rescale = 1
+
+[ref]
+rescale = 1
+
+[dm8_diode]
+rescale = 1

@@ -52,6 +52,7 @@ SRSADCFactory = "sst_base.qt.models.srs570.SRS570Model"
 RBDFactory = "sst_base.qt.models.rbd9103.RBD9103Model"
 QuadSlits = "sst_base.qt.models.quadSlits.QuadSlitsModel"
 FMBOQuadSlits = "sst_base.qt.models.quadSlits.QuadSlitsModel"
+"RedisModeDevice" = "nbs_gui.models.RedisModeModel"
 
 
 [kafka]

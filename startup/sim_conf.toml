@@ -22,6 +22,7 @@
 "pid" = "nbs_sim.devices.pid.PIDGroup"
 "SMU" = "nbs_sim.devices.k2600b.K2600B"
 "RBDFactory" = "nbs_sim.devices.rbd9103.RBD9103"
+"EpicsMCABase" = "nbs_sim.devices.caproto_mca.MCASIM"
 
 [devices]
 ring_current = {_target = "nbs_sim.devices.signals.RingCurrent"}
@@ -30,3 +31,8 @@ beamselection = {_target = "nbs_sim.devices.signals.ModeControl"}
 beamon = {_target = "nbs_sim.devices.signals.ConstantSignal", value = 1}
 softbeamenable = {_target = "nbs_sim.devices.signals.EndstationControl", value = "NEXAFS"}
 Exit_Slit = { _target = "nbs_sim.devices.slits.Slit", trans_min = 0, trans_max = 0.1, user_limits=[0, 0.5]}
+i0 = { kind = "i0" }
+i1 = { kind = "i1" }
+ref = { kind = "ref" }
+m4d = { kind = "i0" }
+m4c = { kind = "i0" }
